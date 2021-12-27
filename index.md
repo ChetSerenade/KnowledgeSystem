@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+## Welcome to 个人博客
 
-You can use the [editor on GitHub](https://github.com/Ted0916/KnowledgeSystem/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# KnowledgeSystem
+<!--
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+ * @Author:凌晨
+ * @Date: 2021-12-12
+ * @LastEditTime: 2021-12-12 
+ * @LastEditors: 凌晨
+ * @Description: 
+ * @FilePath: \Notes\README.md
+   -->
 
-### Markdown
+# 个人博客
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+记录一些不太熟悉的知识点，集中起来学习，输出文档以便后续温故。
 
-```markdown
-Syntax highlighted code block
+“对我来说，博客首先是一种知识管理工具，其次才是传播工具。我的技术文章，主要用来整理我还不懂的知识。我只写那些我还没有完全掌握的东西，那些我精通的东西，往往没有动力写。炫耀从来不是我的动机，好奇才是。" ---阮一峰"
 
-# Header 1
-## Header 2
-### Header 3
+### JavaScript
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Ted0916/KnowledgeSystem/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+1. [Promise 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/Promise.md)
+2. [正则表达式 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/%E6%AD%A3%E5%88%99.md)
+3. [Proxy 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/Promise.md)
+4. [Object.defineProperty 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/Object/Object.defineProperty.md)
