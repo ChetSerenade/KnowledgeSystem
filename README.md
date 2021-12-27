@@ -17,15 +17,7 @@
 
 ### JavaScript
 
-1. [Promise 学习](https://github.com/Rudy24/Notes/blob/master/JavaScript/Promise.md)
-2. [正则表达式 学习](https://github.com/Rudy24/Notes/blob/master/JavaScript/%E6%AD%A3%E5%88%99.md)
-3. [Proxy 学习](https://github.com/Rudy24/Notes/blob/master/JavaScript/Proxy.md)
-4. [Object.defineProperty 学习](https://github.com/Rudy24/Notes/blob/master/JavaScript/Object/Object.defineProperty.md)
-5. [Object.freeze 学习](https://github.com/Rudy24/Notes/blob/master/JavaScript/Object/Object.freeze.md)
-6. [Object.seal 学习](https://github.com/Rudy24/Notes/blob/master/JavaScript/Object/Object.seal.md)
-7. [apply，call，bind 学习以及实现过程](https://github.com/Rudy24/Notes/blob/master/JavaScript/apply%26call%26bind.md)
-8. [字符串如何比较大小](https://github.com/Rudy24/Notes/blob/master/JavaScript/compireString.md)
-9. [class 类](https://github.com/Rudy24/Notes/blob/master/JavaScript/class.md)
-10. [构造函数及构造函数与普通函数的区别](https://github.com/Rudy24/Notes/blob/master/JavaScript/构造函数.md)
-11. [详解 Object.create](https://github.com/Rudy24/Notes/blob/master/JavaScript/Object/create/Object.create.md)
-12. [浅拷贝和深拷贝](https://github.com/Rudy24/Notes/blob/master/JavaScript/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
+1. [Promise 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/Promise.md)
+2. [正则表达式 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/%E6%AD%A3%E5%88%99.md)
+3. [Proxy 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/Promise.md)
+4. [Object.defineProperty 学习](https://github.com/Ted0916/KnowledgeSystem/blob/main/JavaScript/Object/Object.defineProperty.md)
