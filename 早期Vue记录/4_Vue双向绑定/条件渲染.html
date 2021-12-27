@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 如果用户 已经登录 显示欢迎~，否则显示登录 -->
+        <span v-if='login==true'> 欢迎您~ root</span>
+        <span v-else>请登录</span>
+
+        <!-- 复用 -->
+        <div>
+            <div v-if='type=="text"'>
+                姓名: <input type="text" key='text' placeholder="输入">
+            </div>
+            <div v-else>
+                密码： <input type="password" key='pwd' placeholder="密码">
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            login: false,
+            type: 'text'
+        },
+    });
+</script>
+
+</html>

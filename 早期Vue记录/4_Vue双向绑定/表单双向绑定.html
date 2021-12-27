@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单双向绑定v-model</title>
+</head>
+
+<body>
+    <div id="app">
+        表单双向绑定
+        <div>
+            <input type="text" v-model='username' @blur="handleBlur" @input='handleInput'>
+            <div>
+                您输入的用户名是{{username}}
+            </div>
+            <div>
+                性别:
+                <input type="radio" @click='hadeleRadio($event)' name="" id="" value="man" v-model="sex">男
+                <input type="radio" @click='hadeleRadio($event)' name="" id="" value="woman" v-model='sex'>女
+            </div>
+            <div>
+                爱好:
+                <input type="checkbox" name="" id="" value="eat" v-model='box'>吃饭
+                <input type="checkbox" name="" id="" value="sleep" v-model='box'>睡觉
+                <input type="checkbox" name="" id="" value="doudou" v-model='box'>打豆豆
+                <input type="checkbox" name="" id="" value="xu" v-model='box'>敲代码
+            </div>
+            <div>
+                出生的城市
+                <select name="" id="" v-model='city' @change="handleSelect">
+                    <option value="zibo">淄博</option>
+                    <option value="zaozhuang">枣庄</option>
+                    <option value="linyi">临沂</option>
+                    <option value="qingdao">青岛</option>
+                </select>
+            </div>
+            <div>
+                评论
+                <textarea name="pr" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            username: '',
+            sex: 'man',
+            box: ['xu', 'sleep', 'eat'],
+            city: 'zibo',
+            pr: ''
+        },
+        methods: {
+            handleInput: function () {
+                console.log('input事件触发了')
+            },
+            handleBlur: function () {
+                console.log('input失去焦点了')
+            },
+            hadeleRadio: function (event) {
+                console.log(event.target.value);
+            },
+            handleSelect: function (event) {
+                console.log(event.target.value);
+            }
+
+
+        }
+    });
+
+
+
+
+</script>
+
+</html>

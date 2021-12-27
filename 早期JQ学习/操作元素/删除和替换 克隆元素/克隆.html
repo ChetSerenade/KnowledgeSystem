@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d1">
+        <button type="button" class="btn">添加</button>
+    </div>
+
+    <div class="d2">
+
+    </div>
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+    $('.btn').click(function(){
+        console.log('被点击了');
+    })
+
+    //克隆
+    let $xu=$('.btn').clone(true);  //加一个true  深克隆   复制行为  浅克隆不加true
+    console.log($xu);
+    $('.d2').append($xu);
+
+
+
+</script>
+
+</html>

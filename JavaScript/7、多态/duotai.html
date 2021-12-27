@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var obj1 = [1, 2, 3, 4, 5];
+    var obj2 = new Date();
+    var obj3 = {
+        a: 1,
+        b: 2,
+        toString: function () {
+            //重写   toString()方法  使obj3.toString()返回形参  如{a:1,b:2}的结果
+            var str = "{";
+            for (var key in this) {
+                if (typeof this[key] !== 'function') {
+                    str += key + ":" + this[key] + ",";
+                }
+            }
+            str=str.slice(0,-1);
+            str += "}";
+            return str;
+        }
+
+    };
+    console.log(obj1.toString());
+    console.log(obj2.toString());
+    console.log(obj3.toString());
+
+
+
+</script>
+
+</html>

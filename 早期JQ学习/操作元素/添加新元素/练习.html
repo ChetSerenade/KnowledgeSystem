@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            border: 2px solid #666;
+            padding: 20px;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .content {
+            float: left;
+            margin: 20px;
+            border: 1px solid #333;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button">添加</button>
+    <div class="main">
+        <div class="content" style="background-color: slateblue;">
+        </div>
+        <div class="content" style="background-color:springgreen;">
+        </div>
+    </div>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+    //点击添加  在main的末尾追加一个新的方块  颜色随机
+    // 颜色的表示 red  #FFOOOO/F00   rgb(255,0,0)  0~255
+    $('button').click(function () {
+        var $new = $('<div class="content"></div>');
+        $new.css('background', bg()); //随机颜色  随机调用一个颜色
+        $('.main').append($new);
+    });
+
+    //颜色函数
+    function bg() {
+        var r = Math.floor(Math.random() * 256); //Math.random() 
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+    
+</script>
+
+</html>

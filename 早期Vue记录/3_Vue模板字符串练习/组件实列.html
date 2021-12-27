@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model是@input和：value的语法糖 -->
+        <table-rows :headders="headders" :items="items" :pagesize="pagesize">
+            <!-- 用组件里面的slot替换掉组件模板里面的slot 注意 name名要一致 才可以替换掉 -->
+            <!-- <h1 slot="table-rows">用户信息</h1> -->
+        </table-rows>
+    </div>
+    <!-- 表格组件模板 -->
+    <template id="table-rows">
+        <div class="containner">
+            <!-- <slot name="table-rows">
+                <h2>表格头部</h2>
+            </slot> -->
+
+            <table class="table table-bordered">
+                <tr>
+                    <th v-for="item in headders">{{item}}</th>
+                </tr>
+                <tr v-for="item in  pageitems">
+                    <td v-for="mo in item">{{mo}}</td>
+                </tr>
+            </table>
+            <page-links :pages='pages' v-model='page'></page-links>
+        </div>
+    </template>
+
+    <!-- 分页组件的模板 -->
+    <template id="page-links">
+        <ul class="pagination" @click="tiaozhuan($event)">
+            <!-- 向上不能少于第一页 -->
+            <!-- disabled 是禁用的意思 -->
+            <li v-bind:class="{disabled:curpage<=1}"><a :data-page='curpage-1'>上一页</a></li>
+            <!-- 点击那一个 对应哪一个  -->
+            <!-- 记得写 :data-page= '点击的当前位置' -->
+            <li v-for="x in pages" v-bind:class='{active: x == curpage }'><a :data-page='x'>{{x}}</a></li>
+
+            <li v-bind:class="{disabled:curpage>pages}"><a :data-page='curpage+1'>下一页</a>
+            </li>
+            <!-- 向下不能大于总页数 -->
+        </ul>
+    </template>
+</body>
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<script>
+    //表格组件 父组件
+    Vue.component('table-rows', {
+        template: '#table-rows',
+        props: ['headders', 'items', 'pagesize'],  // headders表格头部   items 表格数据   pagesize动态总页数
+        data: function () {
+            return {
+                page: 1
+                //当前页数   在这里写是因为 我把子组件的标签内容放到了 
+                //父组件的标签里面 导致子组件无法获得 当前页数所以我在这里重新 写个函数定义优秀
+            }
+        },
+        computed: {
+            //分页:多少条数据  每页显示多少条2条     1页  0-1  2页2-3  3页4-5
+            pages: function () {   //要知道显示多少条数据
+                //总页数 = (总页数/pagesize)
+                return Math.ceil(this.items.length / this.pagesize)
+            },
+            //每页显示那几条数据
+            pageitems: function () {
+                //每一页开始下标位置
+                var off = (this.page - 1) * this.pagesize;
+                //每一页具体显示那几条数据  含头不含尾
+                return this.items.slice(off, off + this.pagesize);
+            }
+        }
+    })
+
+    //分页组件
+    Vue.component('page-links', {
+        template: '#page-links',
+        props: ['pages', 'curpage'],  //总页数  和点击页数
+        model: {                      //自定义v-model绑定的配置信息
+            prop: 'curpage'           //v-model 自动修改的prop数据是什么
+        },
+        methods: {
+            tiaozhuan: function (event) {
+                //这里使用 evetn.target 来查看点击事件的属性
+                console.log(event.target);
+                if (event.target.tagName.toLowerCase() == 'a') {
+                    //data- 自定义属性 最后都是使用dataset来获取
+                    console.log(event.target.dataset.page);
+                    //别忘了转换成字符串
+                    var p = parseInt(event.target.dataset.page);
+                    //点击范围判断
+                    if (p < 1 || p > this.pages) {
+                        return;
+                    }
+                    //发送事件 向父元素传递
+                    this.$emit('input', p);
+                }
+            }
+        }
+
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            pagesize: 2, //每页显示条数据
+            page: 2,  //当前页数
+            headders: ['姓名', '年龄'],
+            items: [
+                { name: '掌握html，手写符合w3c标准的代码', age: 'sadwqasdwq' },
+                { name: '掌握html，手写符合w3c标准的代码', age: 'sadwqasdwq' },
+                { name: '掌握html，手写符合w3c标准的代码', age: 'sadwqasdwq' },
+                { name: '掌握html，手写符合w3c标准的代码', age: 'sadwqasdwq' },
+                { name: '掌握html，手写符合w3c标准的代码', age: 'sadwqasdwq' },
+        ]
+        }
+    })
+
+</script>
+
+</html>

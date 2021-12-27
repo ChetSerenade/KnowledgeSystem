@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            float: left;
+            width: 150px;
+            height: 200px;
+            border: 1px solid #9999;
+        }
+
+        .main ul {
+            text-decoration: none;
+            padding: 0;
+        }
+
+        .main ul li {
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .xu {
+            float: left;
+            margin-left: 20px;
+            width: 300px;
+            height: 180px;
+            border: 1px solid #aaf;
+            padding: 10px;
+        }
+
+        .xu>div {
+            display: none;
+        }
+
+        .xu>.active {
+            display: block;
+        }
+
+        .main ul li.active {
+            background-color: slategray;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+    <div class="main">
+        <ul>
+            <li class="active">菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+            <li>菜单4</li>
+            <li>菜单5</li>
+        </ul>
+    </div>
+
+    <div class="xu">
+        <div class="active">我是菜单1的内容</div>
+        <div>我是菜单2的内容</div>
+        <div>我是菜单3的内容</div>
+        <div>我是菜单4的内容</div>
+        <div>我是菜单5的内容</div>
+
+    </div>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+    //显示对应内容
+    $('.main ul li').mouseenter(function () {
+        if (!$(this).is('.active')) {  //如果当前点击的不是正在显示的，才需要去切换
+            //修改class样式
+            // $('.main ul li').filter('.active').removeClass();
+            // $(this).addClass('active');
+            $(this).addClass('active').siblings('.active').removeClass();  //addclass  添加class  siblings 查找除自己意外的
+
+            //切换的内容
+            // $('.xu>div').filter('.active').removeClass();
+            // var i = $(this).index();
+            // $('.xu>div').eq(i).addClass('active');
+            $('.xu>div').eq($(this).index()).addClass('active').siblings('.active').removeClass();  //eq选取指定下标元素  index() 下标  
+
+        } else {
+            
+
+        }
+    });
+
+
+
+
+
+
+
+
+</script>
+
+</html>

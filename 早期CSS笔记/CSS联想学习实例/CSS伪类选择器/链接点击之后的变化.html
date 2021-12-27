@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* target是作用于所有的目标:字体 颜色 链接之后的变化,在点击之后发生变化. */
+			a:target {
+				color: greenyellow;
+			}
+
+			/* div：target是在点击链接之后颜色发生改变，div里面包含的所以标签会发生变化。 */
+			div:target {
+				background-color: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<p><a href="#n1">lOVE.</a></p>
+		<p><a href="#n3">lOVE.</a></p>
+		<p><a href="#n2">LOVE.</a></p>
+		<br>
+		<a name="n1">n1..</a>
+		<br>
+		<a name="n3">NIHAO</a>
+		<div id="n2">
+			<div id="test1">XUHUAHZI</div>
+			<p>NIHAO</p>
+			<br>f
+		</div>
+
+		<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+			<!-- 可选择菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">1菜单1</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">2菜单2</a>
+				</li>
+			</ul>
+			<!-- 取消菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#sheet1"><b>3取消</b></a>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+</html>

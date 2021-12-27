@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button type="button" id="btn1">双击</button>
+  <input type="text" id="inp">
+  <br>
+
+  <button type="button" id="btn2">按钮2</button>
+  <button type="button" id="btn3">移除按钮2上得所有事件</button>
+  <button type="button" id="btn4">移除按钮2上得所有click事件</button>
+
+  <button type="button" id="btn5">移除按钮2上 click事件中得第一个处理函数</button>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+  $('#btn1').dblclick(function () {
+    alert('我被双击了！');
+
+  });
+  $('#inp').focus(function () {
+    console.log('获得焦点');
+  });
+  $('#inp').blur(function () {
+    console.log('失去焦点！');
+  });
+
+  //bind('事件类型',fn)
+  //相当于核心DOM中，addEventListener('事件',fn)
+  function f1() {
+    console.log('第一个单机事件处理函数');
+  };
+  function f2() {
+    console.log('第二个单机事件处理函数');
+  }
+
+  $('#btn2').bind('click', f1);
+
+  $('#btn2').bind('click',f2);
+
+  $('#btn2').bind('mouseover', function () {
+    console.log('鼠标移入');
+  });
+
+
+
+  //unbind(['事件类型',fn]) 移除事件
+  //相当于核心DOM中，removeEventListener('事件',fn)
+  //移除事件
+  $('#btn3').bind('click', function () {
+    $('#btn2').unbind();
+    console.log('成功移除！');
+  });
+
+  $('#btn4').bind('click', function () {
+    $('#btn2').unbind('click');
+    console.log('click成功移除！');
+  })
+
+  $('#btn5').bind('click', function () {
+    $('#btn2').unbind('click'.f1);
+    console.log('click成功移除！');
+  })
+
+
+
+</script>
+
+</html>

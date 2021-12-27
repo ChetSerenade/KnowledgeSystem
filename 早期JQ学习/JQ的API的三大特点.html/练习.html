@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button">我是一个button</button>
+    <button type="button">我是二个button</button>
+    <button type="button">我是三个button</button>
+    <button type="button">我是四个button</button>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //click 点击事件  
+    $('button').click(function () {   //等于核心DOM .onclick=funtion(){}
+        //this是一个DOM对象  所以必须封装为JQ 对象
+        $(this).css("border", '2px solid red').html("我被点击了！");
+    });
+
+</script>
+
+</html>

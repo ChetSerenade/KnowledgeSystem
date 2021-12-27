@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        请输入成绩:<input type="text" v-model="cj" />
+        <span v-show="pm=cj">
+            {{xu}}
+        </span>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            cj: '',
+            pm: ''
+        },
+        computed: {
+            xu: function () {
+                var mo = (this.cj < 0 && this.cj > 100) ? ("分数无效") : this.cj >= 90 ? ("优秀") : this.cj >= 80 ? ("良好") : this.cj >= 60 ? ("及格") : ("重考");
+                return mo;
+            }
+        }
+    });
+</script>
+
+</html>

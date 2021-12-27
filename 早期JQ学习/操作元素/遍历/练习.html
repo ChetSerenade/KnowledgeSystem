@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 200px;
+            width: 200px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div>第一期：</div>
+        <div>第二期：</div>
+        <div>第三期：</div>
+        <div>第四期：</div>
+    </div>
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    var arr = ['img/23.jpg', 'img/3324.jpg', 'img/pp.jpg', 'img/timg.jpg', 'img/to.jpg'];
+
+    for (var i = 0; i < arr.length; i++) {
+        $('.main>div').eq(i).append('<img src="' + arr[i] + '">');
+    }
+    console.log($('.main div'));
+
+    // $('.main>div').each(function(i){
+    //     $(this).append('<img src="'+arr[i]+'">');
+    // });
+</script>
+
+</html>

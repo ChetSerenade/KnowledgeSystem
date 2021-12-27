@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #333;
+            background-color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button">
+        变！
+    </button>
+    <div class="box">
+
+    </div>
+
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+    //自定义动画，只能对值为单个数值得css属性进行 动画效果
+    $('button').click(function () {
+        // $('.box').animate({width:'300px'});
+        // $('.box').animate({ height: '300px' });
+        //  $('.box').animate({ left: '600px' }); 
+        //  $('.box').animate({ opacity: 0.7 }); //透明度
+        //   $('.box').animate({ borderWidth: '10px' }); //border
+        //    $('.box').animate({ backgroundColor: '#f00' }); //不可修改
+
+
+        $('.box').animate({
+            width: '300px',
+            height: '300px',
+            left: '500px'
+        }, 'normal', 'linear', function () {
+            alert('动画完毕！');
+        });
+
+
+
+    });
+
+
+
+
+
+
+
+</script>
+
+</html>

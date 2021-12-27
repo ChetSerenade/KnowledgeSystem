@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="count++">点击加1</button><br>
+        <button onclick="alert('hello')">显示提示框</button><br>
+        {{count}}
+        <div>
+            <button @mouseover='over' @mouseout='out'>鼠标移入移出时间</button><br>
+        </div>
+        <div>
+            <!-- 阻止事件默认行  prevent  阻止事件冒泡-- stop -->
+            <a href="http://www.gaoyuzi.cn" @click.prevent='link' target="_blank">个人博客</a>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            count: 2
+        },
+        methods: {
+            over: function () {
+                console.log('入');
+            },
+            out: function () {
+                console.log('移出事件');
+            },
+            link:function(){
+                console.log('个人博客');
+            }
+        }
+    })
+</script>
+
+</html>

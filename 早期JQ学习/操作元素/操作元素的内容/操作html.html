@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="xhz">
+        <h1>这是一个主标题</h1>
+        <p id="p1">这是一个标记得段落<i>这是标记里面得iiiii标记</i></p>
+        <p id="p2">这是二个标记得段落<span>这是标记里面得sssss标记</span></p>
+        <button type="button" id="empty1">清空p1标记内容</button>
+    </div>
+    用户名: <input type="text" id="nihao" value="小高"><br>
+    <input type="button" id="btn1" value="提交">
+    <button type="button" id="btn2">提交</button>
+
+    <button type="button" id="empty2">清空nihao标记内容</button>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //获取xhz中得html内容
+    console.log($('#xhz').html()); //核心DOM: domObj.innerHTML
+    //修改p1标记中得html内容
+    $('#p1').html('新得内容<b>10000万</b>！');
+
+    //获取xhz中得文本内容
+    console.log($('#xhz').text()); //核心DOM: domObj.textContent
+    //修改p2标记中得文本内容
+    $('#p2').text('您时<b>第3</b>访问个用户');
+
+
+    //获取用户名
+    console.log($('#nihao').val());  //核心DOM:domobj.value
+    //修改
+    $('#nihao').val('徐化志'); //核心DOM domobj.value=xxx
+
+    $('#btn1').click(function () {
+        $(this).val('被点击了');  //
+    });
+    $('#btn2').click(function () {
+        $(this).text('又被点了');  //想button 不能修改 value得值  可用修改得text html
+    });
+
+
+    //清空内容
+    $('#empty1').click(function () {
+        // $('#p1').empty();
+        $('#p1').html('');
+    });
+
+    $('#empty2').click(function () {
+        // $('#nihao').empty();  //无法清空 表单元素得value值
+        $('#nihao').val(''); //不可用 直接清除 但是可用 把val设置为空 
+    })
+
+
+
+</script>
+
+</html>

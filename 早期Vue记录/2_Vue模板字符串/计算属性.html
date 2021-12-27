@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    	价格：{{mo}}
+		<div>
+			计算属性：<span v-html="html"> </span>
+		</div>
+		<div>
+			{{cou | build}}
+		</div>
+    </div>
+	
+</body>
+<script src="JS/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+			el:"#app",
+			data:{
+				price:5,
+				cou:6,
+				dis:0.8,
+				fre:2
+			},
+			filters:{
+				build:function(va){
+					return '<h1 style="color:red;">'+va+'</h1>';
+				}
+				
+			},//计算属性
+			computed:{
+				mo:function(){
+					//this 当前cue对象
+					return this.price*this.cou*this.dis+this.fre;
+				},
+				html:function(){
+					return '<h1 style="color:red;">'+this.cou+'</h1>';
+				}
+			}
+	});
+	
+	
+	
+	
+</script>
+</html>

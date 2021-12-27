@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            float: left;
+            list-style: none;
+            width: 200px;
+            width: 200px;
+        }
+
+        ul {
+            margin: 150px 0 0 150px;
+        }
+
+        ul li img {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><img src="img/23.jpg" alt=""></li>
+        <li><img src="img/pp.jpg" alt=""></li>
+        <li><img src="img/psb.jpg" alt=""></li>
+        <li><img src="img/to.jpg" alt=""></li>
+    </ul>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('ul li img').click(function () {
+        $(this).animate({
+            marginLeft: '-50px',
+            marginTop: '-50px',
+            width: '300px',
+            height: '300px',
+            opacity: 0.5
+        }, function () {
+            $(this).parent().remove();
+        });
+    });
+
+
+
+
+
+</script>
+
+</html>

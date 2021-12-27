@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            我的购物车
+            <p>商品名称:{{goods.name}}</p>
+            <p>商品数量:{{goods.count}}</p>
+            <!--  使用v-on 或者缩写@ 来绑定$emit函数传过来的自定义事件 -->
+            <my-cart :count='goods.count' @jian=aa @jia=bb></my-cart>
+
+        </div>
+    </div>
+
+    <template id="cart">
+        <div>
+            <!-- 绑定自定义函数事件 -->
+            <input type="button" value="-" @click='hClick'>
+            <input type="text" v-model='dcount'>
+            <input type="button" value="+" @click='jia'>
+        </div>
+    </template>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-cart', {
+        template: '#cart',
+        props: ['count'],//子组件接收的父组件的数据，需要使用props定义要接收的内容
+        data: function () {
+            return {
+                //这里要独立创建一个data 对象， 要不出现BUG 变成数据共享
+                //如果子组件传入 父组件 要在子组件里面改变数据 在传入到父组件里面 
+                dcount: this.count,
+               
+            }
+        },
+        methods: {
+            //  组件里面 自定义加加 减减事件
+            hClick: function () {
+                console.log('点击了');
+                this.dcount--;
+                this.$emit('jian', this.dcount);
+            },
+            jia: function () {
+                this.dcount++;
+                this.$emit('jia', this.dcount);
+                // 这里是 子元素向父元素送的消息 ‘jia’ ‘参数’
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            goods: {
+                name: '苹果12',
+                count: 1000
+            }
+        },
+        methods: {
+            
+            // 使用arguments[0] 进行接收参数
+            //this.goods.count 来进行数据跟随子组件里面自定义的函数来改变
+            aa: function () {
+                console.log(arguments[0]);
+                this.goods.count = arguments[0];
+            },
+            bb: function (i) {
+                 console.log(arguments[0]);
+                this.goods.count = arguments[0];
+            }
+        }
+
+    })
+
+</script>
+
+</html>

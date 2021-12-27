@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+</body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    let xu=new Promise(function(resolve,reject){
+        //异步
+        //resolve 。。解决
+        //reject。。拒绝
+        
+        $.ajax({
+            url:'mo/1.txt',
+            dataType:'json',
+            success(arr){
+                resolve(arr);
+            },
+            error(res){
+                reject(res);
+            }
+        })
+    }); 
+    xu.then(function(arr){
+        alert('成功！');
+        console.log(arr);
+    },function(res){
+        alert('失败！');
+        console.log(res);
+    })
+  
+
+
+
+</script>
+</html>

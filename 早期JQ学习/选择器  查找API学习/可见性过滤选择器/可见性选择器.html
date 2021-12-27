@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>菜单1</li>
+        <li>菜单2</li>
+        <li style="display: none;">菜单3</li>
+        <li>菜单4</li>
+        <li style="visibility: hidden;">菜单5</li>
+        <li>菜单6</li>
+    </ul>
+
+
+
+
+
+
+    <button type="button" id="btn1">选取所有的可见的li</button>
+    <button type="button" id="btn2">选取所有的不可见的li</button>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('#btn1').click(function () {
+        $('li:visible').html('我是可见的菜单！');
+    });
+
+    $('#btn2').click(function () {
+        $('li:hidden').html('我是不可见的菜单！'); //不可选取visibility：hidden；的元素
+
+    });
+
+    console.log($(':visible')); //可见元素包含 html body
+    console.log($(':hidden')); //不可见元素包含 head/meta/title/script
+
+
+</script>
+
+</html>

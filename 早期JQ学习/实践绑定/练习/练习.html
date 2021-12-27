@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="btn1">确认提交</button>
+
+
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //当点击按钮时，弹出提示框‘提交成功’，要求：按钮只能点击一次，之后便不再提出
+    // $('#btn1').click(function () {
+    //     alert('我被双击了！');
+    //     $(this).unbind();
+    // });
+
+
+        //one API 只执行一次  每一个只执行一个
+    $('#btn1').one('click',function(){
+        alert('成功！');
+    });  
+    $('#btn1').one('click', function () {
+        alert('成功2！');
+    });  
+
+
+
+</script>
+
+</html>

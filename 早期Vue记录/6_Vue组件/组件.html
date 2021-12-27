@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+
+
+    <template id="my-template">
+       
+        <div>
+            请输入用户名:<input type="text" v-model='user'>
+            <button type="button" @click="liuyunchao">添加</button>
+            <ul>
+                <li v-for="time in users">{{time}}</li>
+            </ul>
+        </div>
+
+    </template>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-component', {
+        template: '#my-template',
+        //组件里面data数据必须是函数形式 并且有返回自己的独有对象
+        data: function () {
+            return {
+                users: ['刘云超', '刘超', '刘刘'],
+                user: ''
+            }
+        },
+        methods: {
+            liuyunchao: function () {
+                this.users.push(this.user);
+                this.user = "";
+            }
+        }
+    })
+    var app = new Vue({
+        el: '#app'
+    });
+</script>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .xhz {
+        /* border: 1px solid #999; */
+        width: 120px;
+        float: left;
+        margin-left: 100px;
+        /* margin-left: 200px; */
+    }
+
+    .xhz ul {
+        list-style: none;
+        border: 1px solid #999;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transform: all 0.3s linear;
+    }
+
+    .xhz ul li {
+        padding: 6px 10px;
+    }
+
+    .xhz ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+    .xhz>a{
+        display: block;
+        border: 1px solid #666;
+        background-color: skyblue;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+        margin-bottom: 2px;
+    }
+   .xhz .hide{
+         opacity: 1;
+         height: 150px;
+    }
+</style>
+
+<body>
+    <div class="xhz">
+        <a href="">打开关闭 菜单</a>
+        <ul>
+            <Li><a href="">菜单1</a></Li>
+            <Li><a href="">菜单2</a></Li>
+            <Li><a href="">菜单3</a></Li>
+            <Li><a href="">菜单4</a></Li>
+        </ul>
+    </div>
+
+
+    <div class="xhz">
+        <a href="">打开关闭 菜单</a>
+        <ul>
+            <Li><a href="">菜单1</a></Li>
+            <Li><a href="">菜单2</a></Li>
+            <Li><a href="">菜单3</a></Li>
+            <Li><a href="">菜单4</a></Li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //练习：当单机打开关闭 按钮 菜单自动切换显示和隐藏 并且有动画效果:向上收起和向下展开
+    $('.xhz>a').click(function(e){
+        e.preventDefault();
+        $(this).next().toggleClass('hide');
+    });
+
+
+
+
+
+</script>
+
+</html>

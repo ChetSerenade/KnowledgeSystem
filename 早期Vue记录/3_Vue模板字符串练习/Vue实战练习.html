@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+            /* 在Vue模板示编译完成之前，不显示Vue模板信息 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="form-title">用户观管理</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="">用户名</label>
+                        <input type="text" v-model='user.name'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">年龄</label>
+                        <input type="number" v-model='user.age'>
+                    </div>
+                    <button class="btn btn-default" @click.prevent='addUser'>添加新用户</button>
+                </form>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="time in fenye">
+                            <td>{{time.id}}</td>
+                            <td>
+                                <template v-if="time.edit!=true">
+                                    {{time.name}}
+                                </template>
+                                <template v-else>
+                                    <input type="text" v-model="time.name" @blur="likai(time.id)"
+                                        @keyup.enter="likai(time.id)">
+                                </template>
+                            </td>
+                            <td>
+                                <template>
+                                    {{time.age}}
+                                </template>
+                            </td>
+                            <td>
+                                <a href="" @click.prevent="bianji(time.id)"> 编辑</a>
+                                |
+                                <a href="" @click.prevent.stop='delUser(time.id)'>删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="pagination" @click="tiaozhuan($event)">
+                    <li :class="{disabled:page<=1}">
+                        <a :data-page="page-1">上一页</a>
+                    </li>
+                    <li v-for='p in  pagelink' :class="{active:page==p}">
+                        <a :data-page="page">{{p}}</a>
+                    </li>
+                    <li :class="{disabled:page>=fenye}">
+                        <a :data-page="page+1">下一页</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            users: [
+                { id: 1, name: '刘云超', age: 12 },
+                { id: 2, name: '刘云', age: 13 },
+                { id: 3, name: '刘超', age: 14 }
+            ],
+            user: {
+                name: '',
+                age: ''
+            },
+            id: 3,
+            page: 1,//当前页数
+            pagesize: 2//每夜显示多少条数据
+        },
+        computed: {
+            pagelink: function () {
+                //总页数
+                return Math.ceil(this.users.length / this.pagesize);
+            },
+            fenye: function () {
+                //获取当前页面开始的下标
+                var offset = (this.page - 1) * this.pagesize;
+                //使用silce截取数据 含头不含尾
+                return this.users.slice(offset, offset + this.pagesize);
+            }
+        },
+
+
+        //堆和栈
+        methods: {
+            addUser: function () {
+                //重新创建新数据 再push
+                var newUser = {
+                    name: this.user.name,
+                    age: this.user.age,
+                    id: this.id + 1
+                }
+                this.users.push(newUser);
+                //清空
+                this.user.name = '';
+                this.user.age = '';
+                //id自增
+                this.id++;
+            },
+            //删除用户
+            delUser: function (uid) {
+                if (confirm('您确定要删除本条记录吗？')) {
+                    //执行删除操作
+                    console.log(uid);
+                    //遍历，查找要删除用户的id
+                    for (var i = 0; i < this.users.length; i++) {
+                        //获取id
+                        console.log(this.users[i].id);
+                        if (uid == this.users[i].id) {
+                            //执行删除操作方法 数组变异方法
+                            this.users.splice(i, 1);
+                            break;
+                        }
+                    }
+                } else {
+                    // 不删除
+                }
+            },
+            bianji: function (uid) {
+                for (var i = 0; i < this.users.length; i++) {
+                    if (uid == this.users[i].id) {
+                        //对象渲染问题
+                        //Vue.set 或者 Vue对象.$set
+                        //this 指代当前的vue对象
+                        this.$set(this.users[i], 'edit', true);
+                        break;
+                    }
+                }
+            },
+            likai: function (uid) {
+                for (var i = 0; i < this.users.length; i++) {
+                    if (uid == this.users[i].id) {
+                        this.$set(this.users[i], 'edit', false);
+                        break;
+                    }
+                }
+            },
+            tiaozhuan: function (event) {
+                console.log(event.target);
+                if (event.target.tagName.toLowerCase() == 'a') {
+                    //实现分页跳转
+                    //data- 自定义属性 最后都是使用dataset来获取
+                    //parseInt字符串
+                    var p =parseInt(event.target.dataset.page);
+                    if(p>=1 && p<=this.pagelink){
+                        this.page=p;
+                    }
+                    
+                }
+            }
+
+        }
+    });
+</script>
+
+</html>

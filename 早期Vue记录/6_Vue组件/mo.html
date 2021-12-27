@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        {{mode}}
+        <my-a v-for="i in 3"></my-a>
+    </div>
+
+    <template id="ppp">
+        <div>
+            <button type="button" @click="mod++">{{mod}}<tton>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script type="text/javascript">
+        var data = { mod: 1 }
+
+        Vue.component("my-a", {
+            template: "#ppp",
+            data: function () {
+                // return data
+                return {
+                    mod: data.mod
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                mode: '啊啊啊'
+            }
+        })
+
+    </script>
+</body>
+</html>

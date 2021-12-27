@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <!-- template模板形式 -->
+    <template id="rating">
+        <div>
+           <ul>
+               <li>{{name}}</li>
+               <li>{{age}}</li>
+           </ul>
+        </div>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    Vue.component('my-component', {
+        template: '#rating',
+        data:function() {
+            return{
+                name: 'xhz',
+                age: 20
+            } 
+        }
+    })
+
+    var vm = new Vue({
+        el: '#app',
+    });
+</script>
+</body>
+
+</html>

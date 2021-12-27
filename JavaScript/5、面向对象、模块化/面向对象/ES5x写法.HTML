@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //以函数得形式 来写对象
+    function momo(name, age) {
+        this.name = name;
+        this.age = age;
+        // this.showname = function () {
+        //     alert(this.name);
+        // };
+        // this.showage = function () {
+        //     alert(this.age);
+        // };
+    };
+
+    // 添加得方法
+   
+    momo. prototype.showname = function () {
+        alert(this.name);
+    };
+    momo. prototype.showage = function () {
+        alert(this.age);
+    };
+    let mo = new momo('xhz', 21);
+
+    mo.showname();
+    mo.showage();
+
+</script>
+
+<body>
+
+</body>
+
+</html>

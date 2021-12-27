@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <table width="500">
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+            <tr align="center" v-for="(student,index) in  filterStudents">
+                <td>{{index+1}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.age}}</td>
+            </tr>
+        </table>
+        <div>
+            渲染对象：
+            <span v-for='(val,key,index) in user'>
+                {{key}} - {{val}}
+            </span>
+        </div>
+        <div v-for="(aa,bb) in user">
+            {{aa}} -- {{bb}}
+            <!-- name -- 西西 -->
+            <!-- age -- 25 -->
+        </div>
+
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            students: [
+                { name: '徐', age: 19 },
+                { name: '徐', age: 20 },
+                { name: '徐', age: 21 }
+            ],
+            user:{
+                name:'西西',
+                age:25,
+            }
+        },
+        computed: {
+            filterStudents: function () {
+                //filterde的作用：过滤数组 返回满足条件的数组
+                var res = this.students.filter(function (u) {
+                    //u参数表示当前遍历的数组数据的每一项
+                    return u.age > 20
+                })
+                return res;
+            }
+        }
+
+    });
+</script>
+
+</html>

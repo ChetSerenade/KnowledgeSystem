@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function mo(num,n) {
+        //判断输入是否合法！
+        if (!isNaN(num) && !isNaN(n)) {
+            // num *= Math.pow(10, n);
+            num = Math.round(num);
+            var xu = num.toFixed(n);
+            return xu;
+        } else {
+            //抛出错误！
+            throw err;
+        }
+    }
+    var p = prompt("请输入数字：");
+    var n = prompt("请输入位数：");
+    try {
+        var i = mo(p, n);
+        document.write(i);
+    } catch (err) {
+        document.write("你输入错误！");
+    }
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <my-component>
+            <div slot="pp">这是用户输入的标题</div>
+        </my-component>
+    </div>
+
+    <template id="my-tem">
+        <div>
+            <!-- 插槽的使用  slot表示默认值-->
+            <slot name='pp'>默认标题</slot>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+            <slot name="fs">评论</slot>
+            <slot name='se'>留言</slot>
+        </div>
+    </template>
+</body>
+
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<script>
+    //全局组件注册
+    Vue.component('my-component', {
+        template: '#my-tem'
+    })
+    //初始化vue对象
+    var app = new Vue({
+        el: '#app'
+    })
+
+
+
+
+
+</script>
+
+</html>

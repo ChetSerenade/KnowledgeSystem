@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用 -->
+        <fenshu></fenshu>
+    </div>
+
+    
+    <template id="fenshu">
+        <div @mouseover='hover($event)' @mouseout='hout($event)' @click='dian($event)'>
+            <template v-for="itme in 5">
+                <img src="img/star2.png" alt="" v-if="itme<=num" :data-index="itme">
+                <img src="img/star0.png" alt="" :data-index="itme" v-else>
+            </template>
+            <span>
+                {{mo}}
+            </span>
+        </div>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('fenshu', {
+        template: '#fenshu',
+        data: function () {
+            return {
+                usres: ['差劲', '差点劲', '还可以', '优秀', '非常棒'],
+                num: 2, //经过的位置
+                pp: 2, //点击的位置
+            }
+        },
+        computed: {
+            mo: function () {
+                return this.usres[this.num - 1]
+            }
+        },
+        methods: {
+            //鼠标移入
+            hover: function (event) {
+                if (event.target.tagName.toLowerCase() == 'img') {
+                    this.num = event.target.dataset.index;
+                }
+            },
+            hout: function (event) {
+                this.num = this.pp;
+            },
+            dian: function (event) {
+                this.pp = this.num;
+            }
+        }
+    })
+    var app = new Vue({
+        el: '#app'
+
+    });
+
+
+
+
+</script>
+
+</html>

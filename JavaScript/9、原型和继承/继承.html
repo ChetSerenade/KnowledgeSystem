@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+    function phone(leixing, jiage) {
+        this.leixing = leixing;
+        this.jiage = jiage;
+        // this.calssName= "20号去淄博！";
+        // this.call = function () {
+        //    return "正在拨通" + "。。。";
+        // }
+    }
+    phone.prototype.isDoing = '20号去淄博！';
+    phone.prototype.intro = function () { return "正在拨通" + "。。。"; };
+
+    var xiam = new phone("Apple", "1200$");
+    console.log(xiam);
+    var xhz = new phone("华为", "2000$");
+    console.log(xhz);
+    console.log(xhz.isDoing);
+    console.log(xiam.ppp == xhz.ppp);  //true    
+    //继承自phone构造函数的原型对象prototype    
+    console.log(xiam.intro() == xhz.intro()); //true
+
+    console.log(phone.prototype.constructor); //
+    console.log(xiam.__proto__);
+
+</script>
+
+</html>

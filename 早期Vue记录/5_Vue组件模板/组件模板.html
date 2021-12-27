@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+
+    <!-- template模板形式 -->
+    <template id="rating">
+        <div>
+            <ul>
+                <li v-for="(student,index) in  time">{{student.name}}</li>
+            </ul>
+        </div>
+    </template>
+
+    <body>
+
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('my-component', {
+            // 模板字符串 => `
+            template: '#rating',
+            data:function() {
+                    return {
+                        time: [
+                            { name: 11111 },
+                            { name: 22222 },
+                            { name: 3333 },
+                            { name: 4444 },
+                        ]
+                    }
+                }
+        })
+        var vm = new Vue({
+            el: '#app'
+        });
+    </script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #xx {
+            width: 400px;
+            height: 420px;
+            border: 1px solid red;
+        }
+        #xx span {
+            margin: 0 -2px;
+            width: 104px;
+            display: inline-block;
+        }
+        .active {
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <template id="mo">
+            <div id="xx">
+                <span @click="cur=index" v-for='(sp,index) in span' :class="{active:cur==index}">{{sp}}</span>
+                <div v-for='(mo,index) in div' v-show="cur==index">{{mo}}</div>
+            </div>
+        </template>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            cur: 0,
+            span: ['html', 'css', 'javascript', 'vue'],
+            div: ['html', 'css', 'javascript', 'vue']
+        },
+    });
+</script>
+
+</html>

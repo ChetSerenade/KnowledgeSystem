@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="d1" title="第一个div">第一个div</div>
+    <div id="d2" title="第二个div">第二个div</div>
+</body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    /*获取title属性值  & 修改title属性值*/
+    //核心DOM 
+    var d1 = document.getElementById('d1');
+    console.log(d1.getAttribute('title')); //API为获取某一个属性值
+    d1.setAttribute('title',"修改后的title！");// 修改属性值
+
+
+    //JQ的方式来做
+    //这就是一个 attr API 二次使用 获取和修改   而JSdom 则需要二个API来完成
+    console.log($('#d2').attr('title')); //一个值是获取
+    $('#d2').attr('title','这是修改的属性值！'); //第二个属性值 是修改的意思
+
+
+    console.log($('#d2').html());
+    $('#d2').html("我被改变了！");
+
+   
+
+
+</script>
+
+</html>

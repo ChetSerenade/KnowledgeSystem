@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: black;
+}
+
+a {
+    text-decoration: none;
+    /* 去掉下划线 */
+    position: absolute;
+    /* 决定定位 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* C3中的功能 居中 */
+    font-size: 24px;
+    /* 字体 */
+    background: linear-gradient(90deg, #03a9f4, #f4415a, #ffeb3b, #03a9f4);
+    /* 背景颜色   linear-gradient 彩色 */
+    background-size: 400%;
+    /* 大小 */
+    width: 400px;
+    /* 宽度 */
+    height: 100px;
+    /* 高度 */
+    line-height: 100px;
+    /* 文字水平垂直 */
+    text-align: center;
+    /* 文字水平居中 */
+    color: #fff;
+    /* 字体颜色白色 */
+    text-transform: uppercase;
+    /* 字体变成大写 */
+    border-radius: 50px;
+    /* 变成胶囊装 */
+}
+
+/* 发光边线 */
+a::before {
+    content: "";
+    position: absolute;
+    /* 定位 */
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    bottom: -5px;
+    background: linear-gradient(90deg, #03a9f4, red, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 50px;
+    /* 滤镜  blur 模糊 */
+    filter: blur(20px);
+    /* 实体位置 偏移 */
+    z-index: -1;
+}
+
+a:hover:before {
+    animation: sum 8s infinite;
+}
+
+/* 鼠标点击出现动画  8秒 无限循环 */
+a:hover {
+    animation: sun 8s infinite;
+}
+
+/* css动画 keyframes  */
+@keyframes sun {
+    100% {
+        background-position: -400%;
+    }
+}
+@keyframes sum {
+    100% {
+        background-position: -400%;
+    }
+}

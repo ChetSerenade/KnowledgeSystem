@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <meme :momo="menus"></meme>
+    </div>    
+
+<template id="momo">
+    <div>
+        <div v-for='item in momo'>
+                {{item.name}}
+                <meme :momo='item.childs'></meme>
+        </div>
+    </div>
+</template>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+ Vue.component('meme',{
+     template:"#momo",
+     props:['momo'],
+ })
+
+var app= new Vue({
+    el:'#app',
+    data:{
+          menus: [
+            {
+                name: 'm1',
+                childs: [
+                    {
+                        name: 'm1-1',
+                        childs: [
+                            {
+                                name: 'm1-1-1',
+                                childs: [],
+
+                            }
+                        ],
+                    },
+                    {
+                        name: 'm1-2',
+                        childs: [],
+
+                    }
+                ],
+
+            },
+            {
+                name: 'm2',
+                childs: [],
+            },
+        ]
+    }
+})
+
+
+
+
+
+
+
+</script>
+</html>

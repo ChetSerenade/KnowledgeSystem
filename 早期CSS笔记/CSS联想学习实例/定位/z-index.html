@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				/* 绝对定位 */
+			}
+
+			.xu {
+				position: relative;
+				/* 相对定位 */
+			}
+
+			.red {
+				background-color: #FF0000;
+				z-index: 1;
+			}
+
+			.blue {
+				background-color: #0000FF;
+				z-index: 2;
+			}
+
+			.green {
+				background-color: #00FF00;
+				z-index: 3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="xu">
+			<div class="red"></div>
+			<div class="green"></div>
+			<div class="blue"></div>
+		</div>
+	</body>
+</html>

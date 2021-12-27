@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="p1">111</p>
+    <p id="p2">222</p>
+    <p id="p3">333</p>
+
+</body>
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //使用DOM 修改全部文本颜色
+    var xhz = document.getElementsByTagName("p");
+    for (var i = 0; i < xhz.length; i++) {
+        xhz[i].style.background = "#0ff";
+    }
+
+
+    //JQ
+    var $xhz = $('p');
+    $xhz.css("color", "red");    //特点一 自带遍历效果   不用for循环遍历
+
+
+
+</script>
+
+</html>

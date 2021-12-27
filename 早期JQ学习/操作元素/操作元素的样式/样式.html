@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .alert {
+        border: 1px solid red;
+        width: 400px;
+        padding: 0 20px;
+    }
+
+    .close {
+        font-size: 30px;
+        float: right;
+        color: red;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    .alert p b {
+        clear: both;
+        display: block;
+        cursor: pointer;
+    }
+
+    .alert p {
+        line-height: 30px;
+    }
+</style>
+
+<body>
+    <div class="alert">
+        <span class="close">&times;</span>
+        <p id="p1" style="font-size: 14px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eius ea
+            nam illum doloremque eligendi
+            earum tempore harum veniam facilis nobis excepturi facere dolorum suscipit, at nesciunt. Quae, velit
+            tenetur.</p>
+        <p id="p2" style="font-size: 14px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eius ea
+            nam illum doloremque eligendi
+            earum tempore harum veniam facilis nobis excepturi facere dolorum suscipit, at nesciunt. Quae, velit
+            tenetur.</p>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //核心dom
+    var p1 = document.getElementById('p1');
+    console.log(p1.style.fontSize); //获取字体大小
+    console.log(p1.style.lineHeight);//只能获取内联样式
+
+    var p1Style = getComputedStyle(p1);  //获取计算后的样式
+    console.log(p1Style.lineHeight);
+    p1.style.color="red";
+
+    //JQuery
+    console.log($('#p2').css('font-size'));
+    console.log($('#p2').css('lineHeight')); //直接获取
+    $('#p2').css('color','blue');//设置
+    $('#p2').css({
+        "fontSize":"16px",
+        "lineHeight":"20px"
+    });
+
+
+
+
+
+</script>
+
+</html>

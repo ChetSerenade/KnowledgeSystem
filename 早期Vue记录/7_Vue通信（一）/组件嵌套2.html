@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <parent></parent>
+        <!-- 局部创建的组件 全局不能调用 -->
+        <!-- <zi-parent></zi-parent> -->
+    </div>
+
+    <!-- <template id="par">
+        <div>
+            我是父组件
+            <zi-parent></zi-parent>
+        </div>
+    </template> -->
+
+    <template id="zi">
+        <div>
+            <ul>
+                <li v-for="tiome in 5">
+                    {{tiome}}
+                </li>
+            </ul>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //创建父组件
+        Vue.component('parent', {
+            //template: '#par'
+            template: `
+                <div>
+                我是父组件
+                  <zi-parent></zi-parent>
+                </div>
+            `,
+            // 局部的组件  在父的全局组件中
+            components: {
+                'zi-parent': {
+                    template: '#zi'
+                }
+            }
+        })
+        var app = new Vue({
+            el: '#app',
+             ger: {
+                xx: [
+                    '  掌握html，手写符合w3c标准的代码；用div+ CSS布局常见页面，高度还原设计搞;',
+                    '  熟练处理IE6+ 及chrome浏览器的兼容性问题，CSS和JS代码可兼容至IE6;',
+                    '  熟练掌握JS继承模式的原理以及JS面向对象中的继承，封装，单例模式，工厂模式，原型模式;'
+                ]
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

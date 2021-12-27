@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+
+        //核心DOM
+        window.onload = function () {
+            console.log(document.getElementsByTagName('div')[0]);
+        };
+
+
+
+        //JQuery
+        $(document).ready(function(){
+            console.log($('div').html());
+            $('#btn1').on('click', function () {
+                console.log('被单机了！');
+            });
+        });
+
+        $().ready(function(){
+             console.log(document.getElementsByTagName('div')[0]);
+        });            
+
+
+
+        $(function(){
+            console.log('我也是简写');
+        });
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="mo">
+        文本！
+    </div>
+    <button type="button" id="btn1">单机！</button>
+
+
+
+
+</body>
+
+</html>

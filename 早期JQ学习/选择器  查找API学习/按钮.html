@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="btn-group">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div style="clear: both;"></div>
+    <ul class="btn-group">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //为每一个li添加边框、去掉列表前的小圆点、浮动排到同一行。。。
+    $(".btn-group li").css('border', '1px solid red').css("padding", '2px 10px').css('list-style', 'none').css('float', 'left');
+
+    //去掉相邻的两个li边框
+    // $(".btn-group li:lt(0)").css('border-left', 'none');//不可实现
+    // $(".btn-group li:nth-child(n+2)").css('border-left', 'none'); //可以实现
+    $(".btn-group li~li").css('border-left', 'none'); //可以实现   //相邻选择器
+    $(".btn-group li+li").css('border-left', 'none'); // 兄弟选择器
+
+    //为按钮组中的第一个li和最后一个li实现圆角
+    $(".btn-group li:first-child").css('border-top-left-radius', '3px').css('border-bottom-left-radius', '3px');
+
+    $(".btn-group li:last-child").css('border-top-right-radius', '3px').css('border-bottom-right-radius', '3px');
+
+
+</script>
+
+</html>

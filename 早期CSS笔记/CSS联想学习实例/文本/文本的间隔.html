@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			p {
+				letter-spacing: 0.125rem;
+				width: 100px;
+				border: 0.0625rem solid #00FFFF;
+			}
+		</style>
+	</head>
+	<!-- normal	默认。空白会被浏览器忽略。
+	inherit	规定应该从父元素继承 white-space 属性的值。 -->
+	<body>
+		<!-- white-space 规定初步中的文本不进行换行： -->
+		<p>-khtml-border-,
+			bottom-left-,
+			radius
+			-khtml-    border-botto
+			m-left-radius.!</p>
+		<!-- pre	空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。 -->
+		<p style="white-space: pre;">-khtml-border-,
+			bottom-left-,
+			radius
+			-khtml-    border-botto
+			m-left-radius.!</p>
+
+		<!-- pre-wrap	保留空白符序列，但是正常地进行换行。 -->
+		<p style="white-space: pre-wrap;">-khtml-border-,
+			bottom-left-,
+			radius
+			-khtml-   border-botto
+			m-left-radius.!</p>
+
+		<!-- nowrap	文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 -->
+		<p style="white-space: nowrap;">-khtml-border-,
+			bottom-left-,
+			radius
+			-khtml- border-botto
+			m-left-radius.!</p>
+
+		<!-- pre-line	合并空白符序列，但是保留换行符。 -->
+		<p style="white-space: pre-line;">-khtml-border-,
+			bottom-left-,
+			radius
+			-khtml- border-botto
+			m-left-radius.!</p>
+	</body>
+</html>

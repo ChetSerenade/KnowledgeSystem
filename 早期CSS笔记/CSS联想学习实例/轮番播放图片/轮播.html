@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				border: 0;
+			}
+
+			.lun {
+				position: relative;
+				width: 15%;
+				height: 350px;
+				margin: 70px auto;
+				right: 100px;
+			}
+
+			.con {
+				position: absolute;
+				z-index: 1;
+				text-align: center;
+				bottom: 10px;
+				font-size: 0;
+				width: 100%;
+			}
+
+			.con li {
+				font-size: 12px;
+				display: inline-block;
+				/* inline-block主要的用处是用来处理行内非替换元素的高宽问题的！
+				行内非替换元素，比如span、a等标签，正常情况下士不能设置宽高的，
+				加上该属性之后，就可以触发让这类标签表现得如块级元素一样，可以设置宽高。 */
+				width: 18px;
+				line-height: 18px;
+				border-radius: 50%;
+				/* 向 div 元素添加圆角边框 */
+				background-color: #FF6600;
+				margin: 0 5px;
+				/* 圆圈得间隙是 5 */
+				cursor: pointer;
+				/* 点击出小手 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="lun">
+			<div>
+				<a href="#"><img src="../导航栏/images/GO.jpg" width="400px" height="400px"></a>
+			</div>
+			<ul class="con">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .alert {
+        border: 1px solid red;
+        width: 400px;
+        padding: 0 20px;
+    }
+
+    .close {
+        font-size: 30px;
+        float: right;
+        color: red;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    .alert p b {
+        clear: both;
+        display: block;
+        cursor: pointer;
+    }
+
+    .alert p {
+        line-height: 30px;
+    }
+
+    .text {
+        font-size: 12px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <button id="btn1" type="button">为p1元素添加class</button>
+    <button id="btn2" type="button">删除class</button>
+    <div class="alert">
+        <span class="close">&times;</span>
+        <p id="p1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eius ea
+            nam illum doloremque eligendi
+            earum tempore harum veniam facilis nobis excepturi facere dolorum suscipit, at nesciunt. Quae, velit
+            tenetur.</p>
+        <p id="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eius ea
+            nam illum doloremque eligendi
+            earum tempore harum veniam facilis nobis excepturi facere dolorum suscipit, at nesciunt. Quae, velit
+            tenetur.</p>
+    </div>
+
+
+
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('#btn1').click(function () {
+        $('#p1').addClass('text'); //添加class text  追加新的class  不影响本来有的class   用attr 会替换原来的class
+    });
+
+    $('#btn2').click(function () {
+        $('#p1').removeClass('text'); 
+    });
+
+
+
+</script>
+
+</html>

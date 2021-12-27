@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+		input:read-only{
+			background-color: #FFFF00;
+		}
+		/* :read-write 选择器选取没有设置 "readonly" 属性的元素。 */
+		input:read-write{
+			color: green;
+		}
+		</style>
+	</head>
+	<body>
+		<p> 普通input元素：<input  value="你好呀,高瑜梓同学!" /></p>
+		<p>特定的input元素：<input readonly value="好哦,徐化志同学!" /></p>
+		<br>
+		
+		<p>特定的input元素：<input readonly value="好哦,徐化志同学!" /></p>
+		<br>
+		<p> :read-write 选择器选取没有设置 "readonly" 属性的元素。</p>
+		<p> :readonly 择器选取设置 "readonly" 属性的元素。</p>
+	</body>
+</html>

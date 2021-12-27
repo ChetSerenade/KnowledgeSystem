@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+        <!-- hidden 不可见的 隐藏欲 想记录数据不想让用户看到可以用 隐藏欲   -->
+        <input type="hidden"> 
+    用户名: <input type="text" placeholder="请输入您的用户名！"><br>
+    密码：<input type="password" placeholder="请输入您的密码！"><br>
+    性别：<input type="radio" name="sex" value="男">男
+    <input type="radio" name="sex" value="女">女<br>
+    爱好： <input type="checkbox" name="hobby" value="nusic">音乐
+    <input type="checkbox" name="hobby" value="reading">读书<br>
+    个人简历：<textarea name="" id="" cols="20" rows="2">个人简历</textarea> <br>
+
+    所在区域：<select name="" id="">
+        <option value="ZB">淄博</option>
+        <option value="SH">上海</option>
+        <option value="NJ">南京</option>
+    </select>
+    <br>
+    <input type="submit" value="input 提交按钮">
+    <button type="button">button按钮</button>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //:input 匹配所有的input、textarea、select、button
+    console.log($(':input'));
+
+    //每一种表单元素的type属性值对应一种过滤选择器
+    //:text :password :radio :checkbox :button :submit :reset :images :file
+    console.log($(':text'));
+    console.log($(':password'));
+
+    //:hidden 它即可选择type="hidden"的表单元素  也可以选择display：none的普通元素
+
+
+    //选择背隐藏的文本框
+    console.log($(':input:hidden')); //两次筛选
+
+    //状态过滤 :enabled :disabled :checked :selected
+
+    console.log($(':enabled'));
+    console.log($(':disabled'));
+
+
+</script>
+
+</html>

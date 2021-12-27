@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d1">
+        <p class="text">段落1</p>
+        <p>段落2</p>
+        <p class="text">段落3</p>
+        <p>段落4</p>
+        <a href="">一个链接</a>
+    </div>
+
+
+    <div class="d2">
+        元素
+    </div>
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //删除元素
+    //删除d1下面的所有p标签
+    // $('.d1 p').remove(); //删除
+    // $('.d1 p').empty(); //不删除元素本身  只清空元素内容
+    //删除d1所有class为text的p元素
+    // $('.d1 p.text').remove();
+    $('.d1 p').remove('.text'); //筛选
+
+
+    //替换元素
+    //将d2元素替换为p元素
+    var $p = $('<p>新的p元素</p>');
+    $('.d2').replaceWith($p);   //还有一个相同的时replaceAll
+
+
+
+</script>
+
+</html>

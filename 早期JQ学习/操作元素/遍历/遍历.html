@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            border: 2px solid #666;
+            padding: 20px;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .content {
+            float: left;
+            margin: 20px;
+            border: 1px solid #333;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <ul>
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+    </ul>
+
+    <div class="main">
+        <div class="content">
+
+        </div>
+        <div class="content">
+
+        </div>
+        <div class="content">
+
+        </div>
+        <div class="content">
+
+        </div>
+    </div>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('ul li').css('color', 'red');
+    $('ul li').html('我是修改后的');
+
+    //为每一个小方块添加不同的颜色
+    // $('.main .content').css('background', bg());
+    
+    // let  $mo= $('.main .content');
+    // for(var i=0;i<$mo.length;i++){
+    //     $($mo[i]).css('background', bg());  //$mo[i] 是dom对象 需要通过 $()转换一下
+    // }
+
+    $('.main .content').each(function(){
+        console.log(this);
+        $(this).css('background',bg());
+    });
+
+
+    //遍历 ul li
+    $('ul li').each(function(i,obj){
+        $(obj).html('内容'+(i+1));
+    })
+
+
+
+
+
+    function bg() {
+        var y = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return 'rgb(' + y + ',' + g + ',' + b + ')';
+    }
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        <p>普通变量:{{mode}}</p>
+        <p>数组变量：{{arrar[0]}}</p>
+        <p>对象变量：{{name.name}}</p>
+        <p>对象变量：{{name.age}}</p>
+
+        <p>数组对象变量：{{names[0].name}} {{names[0].age}}</p>
+
+        <p>数组对象变量：{{names[1].name}}</p>
+        <hr> 解析输出 html标签
+        <p v-html="html"></p>
+        <hr>
+        <a :href="scr[0]">{{ scr[1] }}</a>
+        <hr> js表达式
+
+<br>
+        <span>{{ 2+3 }}</span>
+        <span>{{ mun+3 }}</span>
+        <br> api倒序
+        <br>
+        <span>{{ mode.split('').reverse().join('') }}</span>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: "#app",
+            data: {
+                mode: "哈哈wo",
+                arrar: ["马里奥", '欧文'],
+                name: {
+                    name: 'hh',
+                    age: "18"
+                },
+                names: [{
+                    name: "赵",
+                    age: 10
+                }, {
+                    name: "延",
+                    age: 11
+                }, ],
+
+                html: '<h1 v-html="html" style="color: red;">这是标题</h1>',
+                scr: [
+                    "https://www.baidu.com/",
+                    "百度"
+                ],
+                mun: "9"
+            }
+        })
+    </script>
+
+</body>
+
+</html>

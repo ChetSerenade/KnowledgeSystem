@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //其实Javascript并没有重载函数的功能，但是Arguments对象能够模拟重载。
+    // Javascrip中每个函数都会有一个Arguments对象实例arguments，
+    // 它引用着函数的实参，可以用数组下标的方式"[]"引用arguments的元素。
+
+    //1.arguments对象和Function是分不开的。
+
+    //2.因为arguments这个对象不能显式创建。
+
+    //3.arguments对象只有函数开始时才可用
+
+    var mo = function (n1, n2) {
+        // console.log(arguments);
+        // console.log(arguments.length);
+        // console.log(arguments.callee);
+
+        return arguments[0] + arguments[1];
+    }
+    console.log(mo(10, 20));
+
+
+
+</script>
+
+</html>

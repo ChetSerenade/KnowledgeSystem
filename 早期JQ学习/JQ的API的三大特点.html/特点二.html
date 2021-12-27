@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="d1" title="第一个div">第一个div</div>
+    <div id="d2" title="第二个div">第二个div</div>
+</body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    // 修改div元素的文本颜色和title属性值
+    //核心DOM
+    var d1 = document.getElementById("d1");
+    d1.style.color = "#0ff";
+    // d1.title = "修改后的title";  //html DOM
+    d1.setAttribute("tile", "修改后的title"); //核心DOM
+
+    //JQuery
+    $('#d2').css('color', 'red');
+    $('#d2').attr('title', '修改后的值');  // 特点二:链式操作
+</script>
+
+</html>

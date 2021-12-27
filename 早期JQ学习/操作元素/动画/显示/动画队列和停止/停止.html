@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #333;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn1">
+        变！
+    </button>
+    <button type="button" id="btn2">
+        停！
+    </button>
+    <button type="button" id="btn3">
+        3秒之后 小方块消失
+    </button>
+    <div class="box">
+
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //停止动画
+    $('#btn1').click(function () {
+        $('.box').animate({ left: '700px' }, 2000);
+        $('.box').animate({ height: '700px' }, 2000);
+    });
+    $('#btn2').click(function () {
+        $('.box').stop(); //仅停止当球按摩
+    });
+
+    //延迟动画
+    $('#btn3').click(function(){
+        // $('.box').delay(3000).slideUp();
+          $('.box').delay(3000).hide('slow');
+    });
+</script>
+</html>

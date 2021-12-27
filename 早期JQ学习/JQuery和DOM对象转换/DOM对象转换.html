@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="btn1">我是一个button</button>
+    <button type="button" id="btn2">我是第二个个button</button>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //单击时 修改当前背景颜色
+    //核心DOM
+    var btn = document.getElementById("btn1");
+    btn1.onclick = function () {
+        btn1.style.backgroundColor = "#0ff";
+    }
+
+    //使用JQuery
+    $('#btn2').click(function () {
+        //this是一个DOM对象  所以必须封装为JQ 对象
+        $(this).css("backgroundColor", '#0ff');
+    });
+
+    //拆Jq 对象拆解为DOM对象
+    var $btn = $("button");
+    console.log($btn);
+    // var xhz = $btn[0]; //拆解 DOM对象
+    var xhz = $btn.get(0);//拆解DOM对象
+    xhz.innerHTML = "使用DOM对象的API修改内容";
+</script>
+</html>

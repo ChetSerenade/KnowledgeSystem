@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{mode|defore}}
+        <br> {{mode|upda}}
+        <br> {{mode|updata}}
+    </div>
+    <div id="vm">
+        <p>
+            {{mode}}
+        </p>
+        <p>
+            {{mode|toUpper}}
+        </p>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.filter('toUpper', function (value) {
+        return value.toUppercase();
+    })
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            mode: "hello,nihao!"
+        },
+    });
+    var app = new Vue({
+        el: "#vm",
+        data: {
+            mode: "xuxuxu!"
+        },
+    });
+</script>
+
+</html>

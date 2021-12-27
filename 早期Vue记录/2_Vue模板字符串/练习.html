@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="xu">
+        {{ mo | substr }}
+        
+    </div>
+
+</body>
+<script src="JS/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#xu',
+        data: {
+            mo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident facere aliquid itaque pariatur; esse. Vitae beatae tempora eos iusto neque placeat, id perferendis dignissimos quo! Quis enim iusto vel nesciunt?"
+        },
+        filters: {
+            substr: function(value) {
+                var xu = value;
+                if (xu.length > 50) {
+                    xu = value.slice(0, 50)+"...";
+                }
+                return xu;
+            }
+
+        }
+    });
+</script>
+</html>

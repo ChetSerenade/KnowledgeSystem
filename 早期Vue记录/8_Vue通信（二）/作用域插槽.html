@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        普通数据获取
+        <com :items='users'></com>
+
+        使用作用域插槽
+        <com :items='users'>
+            <!-- slot-scope表示slot传过来的值 -->
+            <li slot="li" slot-scope='p'>
+                {{p.pitem}}
+            </li>
+        </com>
+    </div>
+
+    <template id="bb">
+        <ul>
+            <!-- <li v-for='item in items'>
+                {{item}}
+            </li> -->
+
+            <slot name='li' v-for='item in items' :pitem='item'>
+                {{item}}
+            </slot>
+        </ul>
+    </template>
+</body>
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<script>
+    Vue.component('com', {
+        template: '#bb',
+        props: ['items']
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            users: ['你', '我', '他', '谁？']
+        }
+    })
+
+</script>
+
+</html>

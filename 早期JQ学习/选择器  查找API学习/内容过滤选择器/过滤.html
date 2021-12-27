@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" width="500">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>班级</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>二年级二班</td>
+                <td><input type="text" name="" id="" value="编辑"></td>
+            </tr>
+            <tr>
+                <td>宿舍</td>
+                <td>女</td>
+                <td>二年级二班</td>
+                <td><button type="button">编辑</button></td>
+            </tr>
+            <tr>
+                <td>呜呜</td>
+                <td></td>
+                <td>二年级一班</td>
+                <td><button type="button">编辑</button></td>
+            </tr>
+            <tr>
+                <td>女哦</td>
+                <td>女</td>
+                <td>二年级二班</td>
+                <td><button type="button">编辑</button></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <button type="button" id="btn1">选取所有的女生</button>
+    <button type="button" id="btn2">选取所有的二年级二班</button>
+    <button type="button" id="btn3">选取所有的空</button>
+    <button type="button" id="btn4">选取所有的不是空的</button>
+    <button type="button" id="btn5">选取所有包含buttom按钮的</button>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('#btn1').click(function () {
+        $('td:nth-child(2):contains("女")').css("background", 'blue');
+    });
+
+    $('#btn2').click(function () {
+        $('td:nth-child(3):contains("二年级二班")').css("background", 'blue');
+    });
+
+    $('#btn3').click(function () {  //选取所有的空
+        $('td:empty').css("background", 'blue');
+    });
+
+    $('#btn4').click(function () { //选取所有的不是空的
+        $('td:parent').css("background", 'blue');
+    });
+
+    $('#btn5').click(function () { //选取所有包含buttom按钮的
+        $('td:has(button)').css("background", 'blue');
+    });
+
+
+
+
+</script>
+
+</html>

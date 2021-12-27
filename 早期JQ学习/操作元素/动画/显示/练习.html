@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .news {
+            width: 400px;
+        }
+
+        .title,
+        .content {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .title {
+            background-color: steelblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="news">
+        <div class="title">
+            热点新闻
+        </div>
+        <div class="content" style="display: block;">
+            热点新闻 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam vitae saepe exercitationem? Suscipit
+            fugit non rerum dolore veritatis sunt! Aspernatur quas eius asperiores est, aut molestiae placeat labore
+            amet fugiat.
+        </div>
+
+        <div class="title">
+            饮食娱乐
+        </div>
+        <div class="content">
+            娱乐 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam vitae saepe exercitationem? Suscipit
+            fugit non rerum dolore veritatis sunt! Aspernatur quas eius asperiores est, aut molestiae placeat labore
+            amet fugiat.
+        </div>
+
+        <div class="title">
+            体育快报
+        </div>
+        <div class="content">
+            体育快报 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam vitae saepe exercitationem? Suscipit
+            fugit non rerum dolore veritatis sunt! Aspernatur quas eius asperiores est, aut molestiae placeat labore
+            amet fugiat.
+        </div>
+    </div>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    // 当点击某哥title的时候，如果它对应的content是展开的，则收起; 如果是收起的 则展开 并且收起其他展开的
+    $('.title').click(function () {
+        // //判断title对应的content是展开的还是收起的
+        // if ($(this).next().is(':visible')) { //展示是展开的
+        //     $(this).next().slideUp();
+        // } else {  //表示当前收起的
+        //     $(this).next().slideDown();
+        //     $(this).next().siblings('.content').slideUp();
+        // }   
+        $(this).next().slideToggle().siblings('.content:visible').slideUp();
+
+    });
+
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // array的扩展：map、reduce、filter、forEach
+    //模板字符串
+    //json写法：JSON对象
+
+
+
+    //  map  映射：--对应   [66,77,34,22,100] => [及格，及格，不及格，不及格，及格]
+
+    //  readuce n=>1
+
+    //  filiter 过滤
+
+    //  forEach  遍历
+
+    //进几出几
+    let xu = [66, 77, 34, 22, 10];
+    let xu2 = xu.map(time => time >= 60 ? '及格' : '不及格'); //箭头函数的省略
+    console.log(xu2);
+
+
+    // 进多出一    平均值
+    let arr = [68, 53, 12, 98, 65];
+
+    let result = arr.reduce(function (time, item, index) {
+        if (index == arr.length - 1) {
+            return (time + item) / arr.length;
+        } else {
+            return time + item;
+        }
+    });
+    console.log(result);
+
+
+    // 过滤 
+    let momo = [22, 34, 67, 54];
+    let arr3 = momo.filter(itme => itme % 2 == 0);
+    console.log(momo);
+    console.log(arr3);
+
+
+    //遍历
+    let po = [55, 66, 78, 9, 5, 33, 452, 76, 100];
+
+    po.forEach((item, index) => {
+        // alert('第'+index+'个:'+item);
+        alert(`第${index}个：${item}`);
+    });
+
+
+</script>
+
+
+
+<body>
+
+</body>
+
+</html>

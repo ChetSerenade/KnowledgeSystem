@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .xhz{
+            width: 100px;
+        }
+    </style>
+
+<body>
+    <img src="img/preview.jpg" class="xhz">
+    <img src="img/psb.jpg" class="xhz">
+    <img src="img/to.jpg" class="xhz">
+    <img src="img/3324.jpg" class="xhz">
+    <hr>
+    <img src="img/preview.jpg" class="big">
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //点击任意小图  下面大图跟随切换
+    $('.xhz').click(function(){
+    //    var mo=$(this).attr('src');
+    //     $('.big').attr('src',mo);
+    $('.big').attr('src', $(this).attr('src'));
+    });
+
+
+
+
+
+</script>
+
+</html>

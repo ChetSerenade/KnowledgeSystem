@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">请输入您的姓名: <input type="text" v-model='name'>
+        <hr>
+        请输入您的姓名是: <span>{{name}}</span>
+    </div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+<script src="js/vue.js"></script>
+<script>
+    //页面加载完毕执行里面的代码
+    // $(function () {
+    //     $('input').on('input',function () {
+    //     $('span').html($(this).val());
+    //     })
+    // })
+    
+    
+    // 双向绑定: view变，model跟着变。 model变，view跟着变
+    var xu = new Vue({
+        el: '#app',
+        // 数据层
+        data: {
+            name:'hello'
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            原生表单控件的双向绑定
+            <!-- view变，model跟着变，监听表单元素的 input事件 或 change事件
+            model变， view跟着变 v-bindl:value
+         
+            v-model是input事件和value属性绑定的语法糖(缩写) -->
+            <div>
+                <!-- <input type="text" v-model='name'> -->
+                <input type="text" @input='name=$event.target.value' v-bind:value='name'>
+
+            </div>
+            <div>
+                您输入的是:{{name}}
+                <momo></momo>
+            </div>
+
+            <hr>
+            <div>
+                自定义组件的双向绑定
+                <!--  v-model是@input和：value的语法糖
+                        <input type='text' @input='' :v='age'>
+                 -->
+                <momo @input='hinput($event)' :v='age'></momo>
+                <div>
+                    父元素的age={{age}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="mo">
+        <div>
+            这是组件的input框:
+            <p>{{v}}</p>
+            <input type="text" :value='v' @input='hinput($event.target.value)'>
+            <!-- 动态绑定事件 input事件是把数据传出 然后通过自定义函数   this.$emit('input', nval);
+                来进行向父元素发送 则例父组件用了 语法糖 省略了@input='' :value='age' 数据会之间改变
+                value 则是接收 @input='hinput($event)传出的数据。
+            -->
+        </div>
+    </template>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    Vue.component('momo', {
+        template: '#mo',
+        props: ['v'],
+        methods: {
+            hinput: function (nval) {
+                console.log(nval);
+                //向父元素发送自定义事件
+                this.$emit('input', nval);
+            }
+        }
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            age: 14
+        },
+        methods: {
+            hinput: function (event) {
+                console.log(event);
+                this.age = event;
+            }
+        }
+    })
+</script>
+
+</html>

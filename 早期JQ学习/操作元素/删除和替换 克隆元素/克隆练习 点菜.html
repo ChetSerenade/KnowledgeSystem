@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select {
+            width: 150px;
+            height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>点菜系统</h1>
+    <select id="select1" size="6">
+        <option value="hsqz">红烧茄子</option>
+        <option value="gbr">锅包肉</option>
+        <option value="mg">闷锅</option>
+        <option value="lzj">辣子鸡</option>
+        <option value="sg">酥锅</option>
+    </select>
+    <button type="button" id="btn1">&gt;</button>
+    <select id="select2" size="6">
+
+    </select>
+    <button type="button" id="btn2">删除</button>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //当单机 > 按钮的时候，将左边选中项添加到右边一份，且不重复
+    $('#btn1').click(function () {
+        let $mo = $('#select1 option:selected').val();
+
+        // if ($('#select2 option[value=' + $mo + ']').length == 0) {
+
+        if (!$('#select2 option').is('[value=' + $mo + ']')) {
+
+            let $xu = $('#select1 option:selected').clone(true);
+            $('#select2').append($xu);
+        }
+    });
+
+    $('#btn2').click(function () {
+        $('#select2 option').remove();
+    });
+
+    console.log($('#select2 option'));
+    console.log($('#select2 option value'));
+    //将点击 删除 按钮得时候   删除右边的选中、
+    
+</script>
+
+</html>

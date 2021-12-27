@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        c1组件:
+        <c1></c1>
+        c2组件:
+        <c2></c2>
+    </div>
+
+    <template id="c1">
+        <div>
+            <button @click='hclick'>点击向c1发送数据</button>
+        </div>
+    </template>
+
+    <template id="c2">
+        <div>
+            <p>我接收的是:{{aa}}</p>
+        </div>
+    </template>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //非父子组件的通信 需要借作事件总线
+    var bus = new Vue();
+    Vue.component('c1', {
+        template: '#c1',
+        methods: {
+            hclick: function () {
+                //发送自定义事件
+                bus.$emit('me', '这是我点击之后的文字');
+            }
+        }
+    })
+
+    Vue.component('c2', {
+        template: '#c2',
+        data: function () {
+            return {
+                aa: '222'
+            }
+        },
+
+        //接收c1发过来的数据也需要借助事件总线
+        //借助于生命周期钩子函数 created
+        created: function () {
+            // console.log(this); //指向的组件
+            var th = this;
+            bus.$on('me', function () {
+                console.log(th);
+                // console.log(this); //指向的vue
+                //this 谁调用指向谁 bus
+                th.aa = arguments[0];
+            })
+        }
+    })
+    var vm = new Vue({
+        el: '#app'
+    })
+</script>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>邮箱</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>志哥</td>
+                <td>19862566418</td>
+                <td>yuzi@qq.com</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>志哥</td>
+                <td>19862566418</td>
+                <td>yuzi@qq.com</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>志哥</td>
+                <td>19862566418</td>
+                <td>yuzi@qq.com</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>志哥</td>
+                <td>19862566418</td>
+                <td>yuzi@qq.com</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>志哥</td>
+                <td>19862566418</td>
+                <td>yuzi@qq.com</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>志哥</td>
+                <td>19862566418</td>
+                <td>yuzi@qq.com</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+    $("table").css("border", '2px solid #0aa').css("width", '600px').css("height", '300px').css("border-collapse", "collapse");
+    //为thead第一行添加边框
+    $("table thead tr th").css("border-bottom", '2px solid red');
+    //为tbody下的每一行添加下边框  最后一行没有
+    $("table tbody tr:not(:last) td").css("border-bottom", '2px solid red');
+
+    //隔行白女士
+    $("table tbody tr:even").css("background", '#9C9EAD');
+
+    //让tbody中的文字居中显示
+    $("table tbody td").css("text-align", "center");
+
+    //为th和td添加内边距
+    $("table th,table td").css("padding", "2px");
+
+
+    //将tbod中每一行的第二列文本变为红色
+    $("table tbody tr td:nth-child(2)").css("color", 'red'); //子元素选择器实现 nth-child
+   
+</script>
+
+</html>

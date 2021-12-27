@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用html标签的形式调用组件 -->
+        <mm mo='???' my-mss='Vue nb' v-bind:text='todo.text'></mm>
+    </div>
+    
+    <template id="my-tem">
+        <div>
+            组件使用props接收数据
+            mo={{mo}}
+            myMss={{myMss}}
+
+            <!-- 接收的数据格式为对象 -->
+            tetx={{text}}
+
+        </div>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //全局注册自定义组件
+    Vue.component('mm', {
+        template: '#my-tem',
+        //props表示要接收的数据
+        //props的值是数组的形式 可以接收多个数据
+        props: ['mo', 'myMss','text']
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            mo: 'hhhh',
+            todo: {
+                text: 'hello',
+                complate: true
+            }
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="d1">
+        一个div元素
+    </div>
+
+    <div id="d2">
+        二个div元素
+    </div>
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //核心DOM
+    var a = document.createElement('a');
+    a.href = 'www.gaoyuzi.cn';
+    a.innerHTML = '徐化志';
+
+    var d1 = document.getElementById('d1');
+    // d1.appendChild(a);
+    document.body.insertBefore(a, d1);//插入之前
+
+
+
+
+    //jQuery
+    // var xhz = $('<a href="http:www.gaoyuzi.cn">徐化志</a>');  //新元素
+
+    // $('#d2').append(xhz);  //末尾追加
+    // $('#d2').prepend(xhz); //开头追加 
+    // $('#d2').before(xhz);//插入之前
+    // $('#d2').after(xhz);//插入之后
+
+    // $('#d2').append('<a href="http:www.gaoyuzi.cn">徐化志</a>');
+    $('#d2').after('<a href="http:www.gaoyuzi.cn">徐化志</a>');
+
+
+
+</script>
+
+</html>

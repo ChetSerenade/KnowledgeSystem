@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h1 id="h1">这是JQ</h1> -->
+    <p id="p1">一个p标签</p>
+    <p id="p2">第二个个p标签</p>
+    <p id="p3">第三个p标签</p>
+
+
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        // jQuery('#h1').css('color', 'red');  //修改的颜色
+
+        //修改p元素的文本
+
+        //使用核心DOM的方式，使用核心DOM方式过去的元素是DOM对象，只能使用核心DOM的API
+        var p1 = document.getElementById("p1");
+        p1.innerHTML = "我是核心DOM";
+
+
+        //使用JQuery函数库的API，只有JQuery对象才能使用JQuery函数库中的API
+        var p2 = document.getElementById("p2"); //DOM对象
+        p2 = $(p2); //将DOM对象封装为JQuery对象
+        p2.html("我是JQuery函数！");
+
+
+        //直接获取jquery 
+        var p3 = $("#p3");
+        p3.html("很厉害啊！")
+
+
+    </script>
+</body>
+
+</html>

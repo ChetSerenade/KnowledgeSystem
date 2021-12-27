@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .xhz {
+        /* border: 1px solid #999; */
+        width: 120px;
+        margin-left: 100px;
+        /* margin-left: 200px; */
+    }
+
+    .xhz ul {
+        list-style: none;
+        border: 1px solid #999;
+        padding: 0;
+        margin: 0;
+    }
+
+    .xhz ul li {
+        padding: 6px 10px;
+    }
+
+    .xhz ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .xhz ul li.active {
+        background-color: #afa;
+    }
+</style>
+
+<body>
+    <div class="xhz">
+        <ul>
+            <Li class="link"><a href="">菜单1</a></Li>
+            <Li class="link"><a href="">菜单2</a></Li>
+            <Li class="link active"><a href="">菜单3</a></Li>
+            <Li>菜单4</Li>
+            <Li>
+                <hr>
+            </Li>
+            <Li class="link"><a href="">菜单5</a></Li>
+            <Li>菜单6</Li>
+            <Li class="link"><a href="">菜单7</a></Li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //筛选
+    //找第一个 li
+    console.log($('.xhz ul li:first'));
+    console.log($('.xhz ul li:first-child'));
+    console.log($('.xhz ul li').first());  //效果同：first
+
+    //找最后一个li
+    console.log($('.xhz ul li').last());//和:last 相同
+
+    console.log($('.xhz ul li').eq(3));    //如果时整数 从前往后  下标从0开始
+
+    console.log($('.xhz ul li').eq(-3));    //如果从后往前  下标从-1 开始
+
+
+
+    //从li集合中筛选出所有class为link
+    console.log($(".xhz ul  li").filter('.link')); //5个  以元素本身作为筛选得依据
+
+    //删除link
+    console.log($(".xhz ul  li").not('.link')); //从当前得集合 删除一部分得link
+
+    //筛选出所有包含a得标记得li
+    console.log($(".xhz ul  li").has('a'));   //后代 作为筛选得依据    结果为前面li集合中符合条件得li元素
+
+    //筛选出所有li中得a
+    console.log($('.xhz ul li').find('a')); //结果为li得后代元素a
+
+</script>
+</html>

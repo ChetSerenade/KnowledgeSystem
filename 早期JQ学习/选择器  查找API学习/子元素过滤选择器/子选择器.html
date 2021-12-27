@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 子元素选择器下标是从1开始的 -->
+    <ul>
+        <li>1</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+    </ol>
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+    </ol>
+
+    <button type="button" id="btn1">选择每个列表中的第一个li</button>
+    <button type="button" id="btn2">选择每个列表中的最后一个li</button>
+    <button type="button" id="btn3">选择每个列表中的第二个li</button>
+    <button type="button" id="btn4">选择每个列表3的倍数</button>
+    <button type="button" id="btn5">选择每个列表3n-1的li</button>
+
+    <button type="button" id="btn6">选择每个偶数位置的li</button>
+    <button type="button" id="btn7">选择每个奇数位置的li</button>
+
+    <button type="button" id="btn8">选择属于父元素中唯一的一个子元素的li</button>
+
+    <hr>
+    <button type="button" id="btn9">选择ol中的偶数位置的li</button>
+    <button type="button" id="btn10">不使用even和odd，选择每一个列表中的所有奇数位置的li</button>
+
+</body>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+    $("#btn1").click(function () {
+        // $('li:first').css('border', '2px solid  red');  //所有li集合中的第一个li
+        $('li:first-child').css('border', '2px solid  red');
+    });
+
+    $("#btn2").click(function () {  //last最后一个 last-child
+        $('li:last-child').css('border', '2px solid  red');
+    });
+
+    $("#btn3").click(function () {   //指定的选择每个列表中的第二个li
+        $('li:nth-child(2)').css('border', '2px solid  red');
+    });
+
+    $("#btn4").click(function () { //选择每个列表3的倍数
+        $('li:nth-child(3n)').css('border', '2px solid  red');
+    });
+
+    $("#btn5").click(function () {//选择每个列表3n-1的li
+        $('li:nth-child(3n-1)').css('border', '2px solid  red');
+    });
+
+    $("#btn6").click(function () {
+        //  $('li:even').css('border', '2px solid  red'); //整个li集合中下标为偶数的li
+        $('li:nth-child(even)').css('border', '2px solid  red');  //nth——child(even) 根据父元素开始的
+    });
+
+    $("#btn7").click(function () { //奇数选择nth-child（odd）
+        $('li:nth-child(odd)').css('border', '2px solid  red');
+    });
+
+    $("#btn8").click(function () {  //唯一的 only-child
+        $('li:only-child').css('border', '2px solid  red');
+    });
+
+    $("#btn9").click(function () {  //选择ol中的偶数位置的li
+        $('ol li:nth-child(even)').css('border', '2px solid  red');
+    });
+
+    $("#btn10").click(function () {  //不使用even和odd，选择每一个列表中的所有奇数位置的li
+        $('li:nth-child(2n-1)').css('border', '2px solid  red');
+    });
+
+</script>
+
+</html>

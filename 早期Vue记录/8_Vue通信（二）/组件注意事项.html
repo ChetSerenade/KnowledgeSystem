@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <table style="width:300px; border: 1px solid;">
+                <tr is='com'></tr>
+            </table>
+
+
+            <!-- prop验证 -->
+            <!-- 这里传入一个值 什么都可以 -->
+            <my-component v-binde:is='com' name='张三' :age='25'></my-component>
+        </div>
+    </div>
+    <template id="com">
+        <tr>
+            <td>序号</td>
+            <td>年龄</td>
+            <td>姓名</td>
+        </tr>
+    </template>
+
+    <template id="my-template">
+        <div>
+            <p>name={{name}}</p>
+            <P>age={{age}}</P>
+        </div>
+    </template>
+
+</body>
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<script>
+    Vue.component('com', {
+        template: '#com',
+    })
+
+    //prop验证
+    Vue.component('my-component', {
+        template: '#my-template',
+        //props:['name']
+        props: {
+            //name:String
+            name: {
+                //判断用户输入的类型 不正确就报错
+                type: String,
+                required: true
+                //如果用户不输入 给默认的以恶搞值
+
+            },
+            age: {
+                //判断用户的输入的类型 不正确就报错
+                type: Number,
+                default: 19
+                // 如果用户不输入 给一个默认值 19
+            }
+        }
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+        }
+    })
+
+
+
+
+</script>
+
+</html>

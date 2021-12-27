@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(user, index) in users">
+                <td>{{index +1}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>删除|编辑</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            users: [{
+                name: '刘云超',
+                age: 445
+            }, {
+                name: '徐化志',
+                age: 23
+            }]
+        }
+
+    });
+
+
+
+
+</script>
+
+</html>

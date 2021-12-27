@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        新列表项：<br>
+        <input type="text" v-model="kong"><button @click="tj">添加</button>
+        <ul>
+            <li v-for="item in xu">{{item}}</li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            xu: ['列表1', '列表2', '列表3'],
+            kong: ['']
+        },
+        methods: {
+            tj: function () {
+                this.xu.push(this.kong);
+                this.kong = "";
+            }
+        }
+    })
+</script>
+
+</html>

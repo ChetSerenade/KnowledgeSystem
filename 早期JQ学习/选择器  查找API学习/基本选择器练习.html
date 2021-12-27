@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu {
+            width: 300px;
+            border: 2px solid #6666ff;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .menu .link {
+            overflow: hidden;
+        }
+
+        .menu .link a {
+            float: left;
+            border: 1px solid #666;
+            text-decoration: none;
+            color: #333;
+            padding: 3px 6px;
+            margin: 10px 20px 0 0;
+        }
+
+        .menu .btn {
+            text-align: center;
+        }
+
+        .menu .btn button {
+            width: 100px;
+            height: 35px;
+            margin-top: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="link">
+            <a href="">HTML</a>
+            <a href="">CSS</a>
+            <a href="">jquery</a>
+            <a href="">php</a>
+            <a href="">Mysql</a>
+            <a href="">Java</a>
+            <a href="">Python</a>
+            <a href="">Linux</a>
+            <a href="">AI</a>
+            <a href="">前端开发</a>
+            <a href="">淄博</a>
+            <a href="">你我</a>
+            <a href="">大数据</a>
+            <a href="">Vue.js</a>
+            <a href="">Bootstrap</a>
+            <a href="">你好！</a>
+        </div>
+        <div class="btn">
+            <button type="button">查看全部</button>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(".menu .link a:gt(6)").css("display", "none");
+    console.log($(".link,a:gt(6)"));
+
+
+    $(".btn button").click(function () {
+        //    if ($('.menu .link a:hidden').length != 0) {  //hidden 表示不可见的元素  长度不等于o 表示有隐藏的 所以显示出来
+        //等于0的话就没有隐藏的 就没有反应了！
+        //    console.log($('.menu .link a:hidden'));
+        // if ($('.menu .btn button:contains("查看全部")').length != 0) {  // jq选择器找到的都是放到数组里面 如果有就把这东西保存到数组
+        // if ($('.menu .btn button')[0].innerHTML == '查看全部') {
+        if ($('.menu .link a').is(':hidden')) {
+            // console.log($('.menu .btn button:contains("查看全部")'));
+            $(".menu .link a").css("display", "");
+            $(this).html("收起全部");
+        } else {
+            // console.log($('.menu .btn button:contains("查看全部")'));
+            $(".menu .link a:gt(6)").css("display", "none");
+            $(this).html("查看全部");
+        }
+        console.log($('.menu .btn :button:contains("查看全部")').text);
+    });
+
+
+
+
+</script>
+
+</html>

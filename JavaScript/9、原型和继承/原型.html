@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //构造函数
+    function phone(leixing, jiage) {
+        this.leixing = leixing;
+        this.jiage = jiage;
+        // this.calssName= "20号去淄博！";
+        // this.call = function () {
+        //    return "正在拨通" + "。。。";
+        // }
+    }
+    phone.prototype.isDoing = '20号去淄博！';
+    phone.prototype.intro = function () { return "正在拨通" + "。。。"; };
+
+    //用构造函数创建的新对象
+    var xiam = new phone("Apple", "1200$");
+    console.log(xiam);
+    console.log(xiam.isDoing);    //xiam proto -> prototype.proto ->isDoing  如果没找到 一直会找到 Object.prototype 祖宗
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>

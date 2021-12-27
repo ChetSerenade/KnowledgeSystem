@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <menus :items="menus"></menus>
+    </div>
+
+    <template id="menus">
+        <div>
+            <ul>
+                <li v-for='item in items'>
+                    {{item.name}}
+                    <!-- 嵌套子元素，子元素是组件本身 -->
+                    <menus :items='item.childs'></menus>
+                </li>
+            </ul>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //全局创建组件
+        Vue.component('menus', {
+            template: '#menus',
+            props: ['items'],
+            methods: {
+                hClick: function (item) {
+                    if (item.show == false) {
+                        item.show = true;
+                    } else {
+                        item.show = false;
+                    }
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                menus: [
+                    {
+                        name: 'm1',
+                        childs: [
+                            {
+                                name: 'm1-1',
+                                childs: [
+                                    {
+                                        name: 'm1-1-1',
+                                        childs: [],
+                                        
+                                    }
+                                ],
+                            },
+                            {
+                                name: 'm1-2',
+                                childs: [],
+                               
+                            }
+                        ],
+                        
+                    },
+                    {
+                        name: 'm2',
+                        childs: [],
+
+                    },
+                ]
+            }
+        })
+
+    </script>
+</body>
+
+</html>

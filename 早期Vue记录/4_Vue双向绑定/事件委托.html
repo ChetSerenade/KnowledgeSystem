@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 遍历 -->
+        <ul>
+            <li @click='momo(index)' v-for='(time,index) in users'>
+                {{time}}
+            </li>
+        </ul>
+
+        <div>
+            <ul @click='xuxu($event)'>
+                事件委托:
+                <!-- v-bind 的缩写是: -->
+                <li v-for='(time,index) in users' :data-index="index">
+                    {{time}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            users: ['徐徐', '花花', '志志']
+        },
+        methods: {
+            momo: function (i) {
+                console.log(i);
+            },
+            // 委托给他的父元素 ul 
+            xuxu: function (event) {
+                // event.target -> 触发事件的HTML元素   用tagName获取当前标签 转换为小写
+                if (event.target.tagName.toLowerCase() == 'li') {
+                    // console.log(event.target.tagName.toLowerCase());
+                    // 触发事件元素  
+                    //data- 时html5新增的一个自定义属性 会自动添加到dataset属性池中 dataset判断是哪- - 个元素触发的事件
+                    console.log(event.target.dataset.index);
+                }
+            }
+        }
+    });
+
+
+</script>
+
+</html>

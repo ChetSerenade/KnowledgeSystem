@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!-- 1.组件的作用:复用 -->
+    创建组件：
+    1.局部创建 components
+    2.全局创建 Vue.component
+    <div id="app">
+        #vm使用自定义组件
+        <my-components> </my-components>
+        ectend
+        <extend-component> </extend-component>
+    </div>
+
+    <div id="mo">
+        #mo使用全局创建自定义组件
+        <my-components> </my-components>
+        ectend
+        <extend-component> </extend-component>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //全局创建自定义组件
+    Vue.component('my-components', {
+        template: '<h3>this 1111s my components</h3>'
+    })
+    //vue 底层使用extend 先创建 在注册
+    var ex = Vue.extend({
+        template: '<h3>this i2221s my components</h3>'
+    })
+    Vue.component('extend-component', ex);
+    
+
+
+    
+    var vm = new Vue({
+        el: '#app',
+        //局部创建
+        components: {
+            'my-components': {
+                //tempalte 模板
+                template: '<h3>this 33333s my components</h3>'
+            }
+        }
+    });
+    var mo = new Vue({
+        el: '#mo',
+    });
+</script>
+
+</html>

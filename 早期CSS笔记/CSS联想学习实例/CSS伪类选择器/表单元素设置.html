@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* enabled选择器匹配每个启用的元素（主要为表单元素） */
+			input:enabled {
+				font-weight: 500;
+				bold;
+				/* font-weight 字体的大小 */
+			}
+
+			/* disabled属性的启用和禁止 */
+			input:disabled {
+				background-color: coral;
+				/* 背景颜色 */
+				color: #0000FF;
+				/* txte文本数字颜色 */
+			}
+
+			/* input:checked主要对所有选中状态的input设置css */
+			input:checked {
+				border: ;
+				background-color: blue;
+				/* 边框颜色 */
+			}
+		</style>
+	</head>
+	<body>
+		<!-- placeholder 占位符号：请输入。。。 -->
+		<form action="index.html">
+			用户:
+			<input type="text" disabled value="123456">
+		</form>
+		<form action="index.html">
+			编号：
+			<input type="text" disabled value="0916">
+			<!-- HTML disabled属性的启用和禁止 HTML中的input元素、button元素、option元素等都具有一个disabled属性。-->
+			<br>名字：
+			<input type="text" />
+		</form>
+	</body>
+</html>

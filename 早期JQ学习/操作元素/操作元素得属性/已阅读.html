@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" checked>已阅读！<br>
+    <button type="button">提交注册</button>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('input:checkbox').click(function () {
+        // $('button').attr('disabled',!$(this).attr('checked'));
+        // console.log($(this).attr('checked')); //无法返回状态属性的布尔值
+        //使用prop 操作状态属性
+         console.log($(this).prop('checked'));
+        $('button').prop('disabled', !$(this).prop('checked'));
+    });
+
+</script>
+
+</html>吧

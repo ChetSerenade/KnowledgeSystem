@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <table-list :headers='headers' :i='items'></table-list>
+    </div>
+    <template id="pp">
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th v-for="time in  headers">{{time}}</th>
+                </thead>
+                <tbody>
+                    <tr v-for="time in  i">
+                        <td v-for="mo in  time">{{mo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('table-list', {
+        template: '#pp',
+        props: ['headers', 'i']
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            headers: ['姓名', '年龄'],
+            items: [['刘云超', '20'], ['无名氏', '22']]
+        }
+    });
+</script>
+
+</html>

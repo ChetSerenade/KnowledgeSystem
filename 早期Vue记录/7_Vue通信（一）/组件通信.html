@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-com v-on:bb='aa'></my-com>
+    </div>
+
+    <template id="my-tem">
+        <div>
+            <button @click='hClick'>点击向父元素发生数据</button>
+
+        </div>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-com', {
+        template: '#my-tem',
+        methods: {
+            hClick: function () {
+                console.log('点击了');
+                //使用emit向父元素发送自定义事件
+                //同时传递数据
+                this.$emit('bb', '子组件传递的数据');
+            }
+        }
+    })
+    var app = new Vue({
+        el: '#app',
+        methods: {
+            //监听自定义事件
+            aa: function () {
+                console.log('父元素已接收到了子组件的bb事件');
+                console.log('子组件传过来的数据：' + arguments[0]);
+            }
+        }
+    })
+</script>
+
+</html>

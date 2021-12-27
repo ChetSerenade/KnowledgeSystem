@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div id="mo">{{hh}}
+        <div>{{nowTime}}</div>
+    </div>
+
+
+</body>
+<script src="JS/vue.js"></script>
+<script>
+    var mo = new Vue({
+        el: "#mo",
+        data: {
+            pp: "hello",
+            message: ''
+        },
+        computed: {
+            hh: function () {
+                return this.pp.split("").reverse().join("");
+            },
+            nowTime: function () {
+                var thin = this;
+                setInterval(function () {
+                    thin.message = new Date();
+                }, 1000);
+                return this.message;
+            }
+        },
+    });
+</script>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+    </ol>
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+
+    <button type="button" id="btn1">选择第一个li</button>
+    <button type="button" id="btn2">选择最后一个li</button>
+    <button type="button" id="btn3">选择最后一个ul下的所有li</button>
+    <button type="button" id="btn4">选择最偶数</button>
+    <button type="button" id="btn5">选择基数</button>
+    <button type="button" id="btn6">选择下标为6的li</button>
+    <button type="button" id="btn7">选择下标为大于3的li</button>
+    <button type="button" id="btn8">选择下标为小于3的li</button>
+    <button type="button" id="btn9">选择所有li集合中不为active的li</button>
+
+    <hr>
+    <button type="button" id="btn10">选择第一个class为active的元素</button>
+    <button type="button" id="btn11">选择ol下的所有的li集合 下标为偶数</button>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('#btn1').click(function () {
+        $('li:first').css('border', '2px solid red');
+    });
+    $('#btn2').click(function () {
+        $('li:last').css('border', '2px solid red');
+    });
+    $('#btn3').click(function () {
+        $('ul:last li').css('border', '2px solid red');
+    });
+    //even 偶数
+    $('#btn4').click(function () {
+        $('li:even').css('border', '2px solid red');
+    });
+    //odd 奇数
+    $('#btn5').click(function () {
+        $('li:odd').css('border', '2px solid red');
+    });
+    //eq 是第一几个
+    $('#btn6').click(function () {
+        $('li:eq(6)').css('border', '2px solid red');
+    });
+    //gt 是小于
+    $('#btn7').click(function () {
+        $('li:gt(3)').css('border', '2px solid red');
+    });
+    //lt 是大于
+    $('#btn8').click(function () {
+        $('li:lt(3)').css('border', '2px solid red');
+    });
+
+    $('#btn9').click(function () {
+        $('li:not(.active)').css('border', '2px solid red');
+    });
+
+    $('#btn10').click(function () {
+        $('.active:last').css('border', '2px solid red');
+    });
+
+    $('#btn11').click(function () {
+        $('ol>li:even').css('border', '2px solid red');
+    });
+
+
+
+
+</script>
+
+</html>

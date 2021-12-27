@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 规定范围值以及边框颜色黄色 */
+			input:in-range{
+				border:2px solid yellow;
+			}
+			/* 超出设定值，字体颜色发生变化。 */
+			input:out-of-range{
+				color: #00FFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 在input中输入一个值 (小于 4 或者 大于 9), 查看样式的变化。 -->
+		<input type="number" min="4" max="9" value="6" />
+		<input type="number" min="3" max="11" value="5" />
+	</body>
+</html>

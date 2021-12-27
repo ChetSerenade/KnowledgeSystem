@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="d1">
+        <button type="button" id="btn1">按钮1</button>
+        <button type="button" id="btn2">解除按钮2事件</button>
+    </div>
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    // 两个参数事件绑定  事件绑定  为匹配到的元素本身绑定事件
+    //on('事件类型',fn)  相当于bind()
+    // $('#btn1').no('click', function () {
+    //     console.log('按钮1 被单机了！');
+    // });
+
+
+
+    //解除事件 off('xxx','xxx');
+    $('#btn1').off('click', function () {
+        console.log('按钮1 被单机了！');
+    });
+
+
+    //三个参数   表示事件代理  让匹配到的元素代理子元素触发事件处理函数
+    //no('事件类型','selector',fn) 相当于delegate('selector','事件类型',fn)
+    $('#d1').on('click','#btn1',  f1);
+    $('#d1').on('mouseover', '#btn1', f2);
+    //移出代理
+    $('#btn2').on('click', function () {
+        // $('#d1').undelegate();
+        $('#d1').off('click', '#btn1', f1);
+    });
+    function f1() {
+        console.log('按钮被点击！');
+    };
+    function f2() {
+        console.log('鼠标移入按钮！');
+    };
+
+
+</script>
+
+</html>

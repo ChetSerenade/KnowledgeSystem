@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            border: 2px solid #666;
+            padding: 20px;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .content {
+            float: left;
+            margin: 20px;
+            border: 1px solid #333;
+            width: 150px;
+            height: 150px;
+        }
+
+        .colse {
+            float: right;
+            font-size: 25px;
+            margin-right: 10px;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn">添加</button>
+    <div class="main">
+        <div class="content" style="background-color: slateblue;">
+            <span class="colse">&times;</span>
+        </div>
+        <div class="content" style="background-color:springgreen;">
+            <span class="colse">&times;</span>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //点击添加  在main的末尾追加一个新的方块  颜色随机
+    // 颜色的表示 red  #FFOOOO/F00   rgb(255,0,0)  0~255
+    //当点.close  删除当前小方块
+    $('button').click(function () {
+        var $new = $('<div class="content"><span class="colse">&times;</span></div>');
+        $new.css('background', bg()); //随机颜色  随机调用一个颜色
+        // $new.find('.colse').click(function () {  //find 查找符合条件的后代元素  进行事件的绑定
+        //     $(this).parent().remove(); //parent 指向 span 上一层的div 所有要写 找父元素 parent()
+        // });
+        $('.main').append($new);
+    });
+    //使用事件代理得方式绑定删除事件
+    $('.main').delegate('.colse','click',function(){
+        $(this).parent().remove();
+    });
+    // $('.colse').click(function () {
+    //     $(this).parent().remove();
+    // });
+    // console.log($('.colse'));
+    //颜色函数
+    function bg() {
+        var r = Math.floor(Math.random() * 256); //Math.random() 
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+</script>
+</html>

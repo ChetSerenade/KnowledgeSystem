@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="d1">
+        <button type="button" id="btn1">按钮1</button>
+        <button type="button" id="btn2">解除按钮2事件</button>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //事件绑定
+    // $('#btn1').click(function(){
+    //     console.log('按钮1被单机了！');
+    // });
+
+    //事件代理
+    $('#d1').delegate('#btn1', 'click', f1);
+
+    $('#d1').delegate('#btn1', 'mouseover', f2);
+
+
+    //移出代理
+    $('#btn2').bind('click', function () {
+        // $('#d1').undelegate();
+        $('#d1').undelegate('#btn1','click',f1);
+    });
+
+
+
+
+    function f1() {
+        console.log('按钮被点击！');
+    };
+    function f2() {
+        console.log('鼠标移入按钮！');
+    };
+
+
+</script>
+
+</html>

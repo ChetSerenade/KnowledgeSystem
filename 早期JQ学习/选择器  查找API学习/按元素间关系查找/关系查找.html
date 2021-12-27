@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .alert {
+        border: 1px solid red;
+        width: 400px;
+        padding: 0 20px;
+    }
+
+    .close {
+        font-size: 30px;
+        float: right;
+        color: red;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    .alert p b {
+        clear: both;
+        display: block;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="alert">
+        <span class="close">&times;</span>
+        <h4>一个标题</h4>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eius ea nam illum doloremque eligendi
+            earum tempore harum veniam facilis nobis excepturi facere dolorum suscipit, at nesciunt. Quae, velit
+            tenetur.<b>查看更多</b></p>
+    </div>
+
+
+
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $('.close').click(function () {
+        // $('.alert').css('display','none');
+        $(this).parent().css('display', 'none');
+    });
+
+    //当鼠标移入警告框时  警告框内的标题显示为红色
+    $('.alert').mouseover(function () {
+        $('.alert').children('h4').css('color', 'red'); //childern 子元素
+        $('.alert').find('b').css('color', 'blue');  //后代元素
+    });
+
+
+
+
+
+</script>
+
+</html>

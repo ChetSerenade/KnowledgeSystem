@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <!-- <my  :cc="val" @input="hcheck"> </my> -->
+            <my :cc="val" @input="hcheck"> </my>
+            <p>
+                {{val}}
+            </p>
+        </div>
+    </div>
+    <template id="my-mo">
+        <div>
+            <input type="checkbox" :cc='cc' @change="hchange($event.target.checked)">
+            <label>打篮球</label>
+        </div>
+    </template>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my', {
+        template: '#my-mo',
+        props: ['cc'],
+        methods: {
+            hchange: function (nval) {
+                console.log(nval);
+                this.$emit('input', nval);
+            }
+        }
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            val: true
+        },
+        methods: {
+            hcheck: function (newx) {
+                this.val = newx;
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea cols="30" rows="8">123</textarea>
+    <button type="button">提交</button>
+    <div>
+        <h3>您要提交得内容为:</h3>
+        <div id="content"></div>
+    </div>
+
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //点击之后 内容显示
+    //contains 当button很多时 需要 筛选一下
+    $('button:contains("提交")').click(function () {
+        var text = $(this).prev().val();
+        $('#content').html(text);
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,
+        p {
+            border: 1px solid #0ff;
+            margin: 10px;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="d1" class="mydiv">id为d1，class为mydiv
+        <div class="nimi">class为nimi</div>
+    </div>
+
+    <div id="d2" class="mydiv">id为d2，class为mydiv
+        <p class="nimi">这是p标记 class为nimi</p>
+    </div>
+
+    <div id="d3">id为d3
+        <div class="nimi">
+            class为nimi
+        </div>
+    </div>
+
+    <p class="mydiv">这是一个p标记,class为mydiv</p>
+
+    <button type="button" id="btn1">选择id为d1的元素</button>
+    <button type="button" id="btn2">选择class为mydiv的元素</button>
+    <button type="button" id="btn3">选择所有的div</button>
+    <button type="button" id="btn4">选择所有的元素</button>
+    <button type="button" id="btn5">选择id为di1的元素和所有p元素</button>
+
+    <hr>
+    练习:
+    <button type="button" id="btn6">选择id为d3的元素</button>
+    <button type="button" id="btn7">选择class为nimi的元素</button>
+    <button type="button" id="btn8">选择所有的p元素</button>
+    <button type="button" id="btn9">选择class为mydiv和id为d2的元素</button>
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //选择器 修改d1的元素
+    $("#btn1").click(function () {
+        $("#d1").css("border-color", 'red');
+    });
+    //class 查找 为mydiv的元素
+    $("#btn2").click(function () {
+        $(".mydiv").css("border-color", "red");
+    });
+    //所有div 
+    $("#btn3").click(function () {
+        $("div").css("border-color", "red");
+    });
+    //选择所有 通配符
+    $("#btn4").click(function () {
+        $("*").css("border-color", "red");
+    });
+    //选所有的元素
+    $("#btn5").click(function () {
+        $("#d1,p").css("border-color", "red");
+    });
+
+    $("#btn6").click(function () {
+        $("#d3").css("border-color", 'red');
+    });
+    $("#btn7").click(function () {
+        $(".nimi").css("border-color", "red");
+    });
+    $("#btn8").click(function () {
+        $("p").css("border-color", "red");
+    });
+    $("#btn9").click(function () {
+        $(".mydiv,#id2").css("border-color", "red");
+    });
+
+</script>
+
+</html>

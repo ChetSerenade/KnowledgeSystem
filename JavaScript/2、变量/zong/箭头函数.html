@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+        // console.log(this);  //windon
+
+     //this 在没用箭头函数之前 this 是谁执行 就指向谁 当在 箭头函数里面执行时 就变成了当前的环境
+
+
+
+
+    // let  json={
+    //     a:12,
+
+    //     //this=>当前环境
+    //     fn:()=>{
+    //         alert(this.a);
+    //     }
+    // };
+
+
+    class Json{
+        constructor(){
+            console.log(this);  //空的
+            this.a=12;
+            this.fn=()=>{
+                console.log(this); //12
+                alert(this.a);
+            }
+        }
+
+    }
+
+    let json= new Json();
+    //json.fn();
+    let oDate = new Date();
+    oDate.fn = json.fn;
+    oDate.fn();
+
+
+
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            列表一个
+        </li>
+    </ul>
+    <ul>
+        <li></li>
+        <li class="list">列表1</li>
+        <li class="list">列表2</li>
+        <li id="list4">列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+    </ul>
+
+    <input type="checkbox" id="check1">
+
+
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //获取所有的li的个数
+    console.log($('li').length);
+    console.log($('li').size);
+
+    $('#check1').click(function(){
+        console.log($(this).is(':checked'));
+    })
+
+
+    //获取某一个元素的下标
+    console.log($('#list4').index());
+    //默认情况下 返回当前元素父元素下所有兄弟元素集合中的下标
+    console.log($('.list').index());  //只能返回匹配到的第一个元素的下标
+
+    console.log($('.list').index('li')); //再所有li集合的下标
+
+    console.log($('.list').index('.list')); //在所有class为.list的元素集合中的下标
+
+
+
+
+</script>
+</html>

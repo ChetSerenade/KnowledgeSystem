@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue组件的data属性</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            vue对象数据：me={{me}}
+        </div>
+        <my-component></my-component>
+    </div>
+   
+    
+    <template id="my-template">
+        <div>
+            Vue组件数据： me={{me}}
+        </div>
+    </template>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var data = {
+        me: 'hello world'
+    }
+
+    Vue.component('my-component', {
+        template: '#my-template',
+        //data:data
+        //data属性的值是函数形式
+        //data属性是自己的独立属性，不能与全局变了共享
+
+        //原则：高内聚低耦合
+        data: function () {
+            return {
+                me: data.me
+            }
+        }
+    })
+    var app = new Vue({
+        el: '#app',
+        data: data
+    })
+
+
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    Promise.all([
+        $.ajax({ url: 'mo/1.txt', dataType: 'json' }),
+        $.ajax({ url: 'mo/2.txt', dataType: 'json' }),
+        $.ajax({ url: 'mo/3.txt', dataType: 'json' }),
+    ]).then(([mo1, mo2, mo3]) => {
+        console.log(mo1, mo2, mo3);
+    }, res => {
+        alert('失败！');
+    });
+
+
+
+
+
+</script>
+
+</html>

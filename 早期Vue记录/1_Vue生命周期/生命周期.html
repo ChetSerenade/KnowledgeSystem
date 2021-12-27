@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title></title>
+  <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<!-- view -->
+<div id="app"> {{mo}}</div>
+</body>
+<script>
+  // // nidel 数据层
+  // var data = {
+  // 	mo: 'xuhuahzi'
+  // }
+  // //vm vue对象
+  // new Vue({
+  // 	el: '#app',
+  // 	data: data
+  // })
+  var mo = new Vue({
+    el: '#app',
+    data: {
+      mo: 'xuhuahzi'
+    },
+    //生命周期钩子函数
+
+    //创建相关
+    //beforeCreate : 未创建Vue对象之前的回调函数，此时el和data都为空
+    beforeCreate: function () {
+      console.log('创建之前');
+      //this 表示当前的vue对象
+      // console.log('el=' + this.$el);
+      // console.log('data=' + this.$el);
+    },
+    //cerated:创建vue对象之后的回调函数，此时el为空 data数据已经存在
+    cerated: function () {
+      console.log('创建之后');
+      //this 表示当前的vue对象
+      // console.log('el=' + this.$el);
+      // console.log('data=' + this.$el);
+    },
+    //绑定相关
+    //beforeMount: 绑定view和model之前的回调函数，此时 el已有值 {原始值}
+    beforeMount: function () {
+      console.log('绑定之前');
+      // console.log('el=' + this.$el.innerHTML);
+    },
+    //mounted:绑定view和model之后的回调函数，此时el为绑定后的值
+    mounted: function () {
+      console.log('绑定之后');
+      // console.log("el=" + this.$el.innerHTML); //el=init message 初始值
+    },
+    // 这里我通过vm.message = 'hell' 修改了值
+    //修改属性值之后才会使用  显示得值 为更新之前得值
+    beforeUpdate: function () {
+      console.log('修改之前');
+      // console.log("el=" + this.$el.innerHTML); //el= init message 初始值
+
+    },
+    //修改属性值之后才会使用 显示得值 为更新以后得值
+    updated: function () {
+      console.log('修改之后');
+      // console.log("el=" + this.$el.innerHTML);//el=hell
+    },
+    //销毁之前
+    beforeDestroy: function () {
+      console.log("销毁之前杯调用");
+    },
+    destroy:function (){
+      console.log("销毁之后");
+    }
+
+
+  });
+</script>
+
+</html>
