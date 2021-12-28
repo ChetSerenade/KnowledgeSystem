@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公共原型 && this指向</title>
+</head>
+<body>
+
+</body>
+<script>
+    //    全局 this -> window
+    //    预编译函数 this -> window
+    //    apply / call 改变this指向
+    //    构造函数得this指向实列化对象
+
+
+    //JS得typeof可能返回得值 有那些？
+    // object（null） / boolean / number / string / undefined /function
+
+    /* var myLang = {
+         no1: 'a',
+         no2: 'b',
+         no3: 'c',
+         mystring: function (num) {
+             console.log(this['no' + num]);  //拼接
+         }
+     }
+     myLang.mystring(2)*/
+
+    /*    var car = {
+            brand: '1',  // key : value
+            color: '2',
+            lang: '3',
+        }
+        for (var key in car) {
+            console.log(key + car[key])
+            //car.key  -> car['key'] --> undefined  不能这样写  所以要 car[key]
+        }*/
+
+
+    // hasOwnProperty  去除原型上的属性
+    /*  var obj = {
+          name: 'xuhuazhi'
+      }
+
+      function Car() {
+          this.brnd = 'Benz';
+          this.age = 'red';
+          this.displayName = '666';
+      }
+
+      Car.prototype = {
+          tets: '999'
+      }
+
+      Object.prototype.name = 'obj'
+
+      var Car = new Car()
+
+      for (var key in Car) {
+          //hasOwnProperty  去除原型上的属性
+          if (Car.hasOwnProperty(key)) {
+              console.log(Car[key])
+          }
+      }*/
+
+
+    //A对象得原型到底有没有B得原型
+    /*   console.log(car instanceof Car) //true
+       console.log(car instanceof object) //true
+       console.log([] instanceof array) //true
+       console.log([] instanceof object) //true
+       console.log({} instanceof object) //true*/
+
+
+    /*   var a = [];
+       //a.constructor  第一种判断数组
+       //一般不用 instanceof方式去判断 会有潜在问题得  第二种判断数组
+       //判读 后端传来的数据 是否是数组  第三种判断数组
+       var str = Object.prototype.toString,
+       trueTip = '[object Array]'
+       if (str.call(a) === trueTip) {
+           console.log('是数组')
+       } else {
+           console.log('不是数组')
+       }
+       //判读 后端传来的数据 是否是数组
+       var arr = new Array(1, 2, 3);
+       console.log(arr.toString())
+       console.log(Object.prototype.toString.call(arr))*/
+
+
+    //    callee/ caller
+    /* function tets(a,b,c) {
+         console.log(arguments.callee.length);  //输出实参得个数  // 2
+         console.log(tets.length);  //形参  2
+         console.log(arguments.length)  //形参 2
+     }
+     test(1,2);*/
+    // callee  用来输出 当前实参得个数
+    // caller 谁调用 输出谁得 实参个数
+
+    //   案列
+    /*   var sum = (function (n) {
+           if (n <= 1) {
+               return 1;
+           }
+           return n + arguments.callee(n - 1)
+           //    arguments.callee 这里是一个 递归 需要使用自己得函数，而这个函数 是 立即执行 并不能直接使用 函数名称,所以我们可以使用 callee
+       })(100);
+
+       console.log(sum)*/
+
+    //与NaN 相等比较实终都等于 false
+    // isNaN() 函数可确定值是否为非数字（Not-a-Number）。
+    /*  function inNaN1(num) {
+          var res = Number(num) + '';
+          return res === 'NaN';
+      }
+      console.log(inNaN1('ABD'))*/
+
+</script>
+<script>
+    //    全局 this -> window
+    //    预编译函数 this -> window
+    //    apply / call 改变this指向
+    //    构造函数得this指向实列化对象
+
+    // 题目
+    /* var a = '1';
+     function Tets() {
+         var a = '2';
+         a = '3'
+         console.log(this.a)
+         console.log(a)
+     }
+     Tets.prototype.a = '111'
+     Tets();  //2    这里 this 指向全局
+     new Tets(); //2  这里this 指向test局部里面
+     console.log(a)  //3*/
+
+    /*
+        function closer1(){
+            function test3(){
+                console.log('我是test3');
+                console.log(this);  //this指向{test3}
+                function test4(){
+                    console.log('我是test4');
+                    console.log(this); //this指向window
+                }
+                return test4.bind(this)  //this指向了{test3}
+            }
+            return {test3}
+        }
+        // console.log(closer1()); //得到的是一个对象 {test3: ƒ}
+        closer1().test3()();
+    */
+
+    /*    function initiator(opt) {
+            this.carName = opt.carName;
+            this.displacement = opt.displacement;
+            this.ageLimit = opt.ageLimit;
+            this.iniy = function () {
+                return this.carName + ',排量为' + this.displacement + '是一部年龄为' + this.ageLimit + '年的车'
+            }
+        }
+
+        function VehicleInformation(opt) {
+            initiator.call(this, {carName: opt.carName, displacement: opt.displacement, ageLimit: opt.ageLimit})
+            this.name = opt.name;
+            this.age = opt.age;
+            this.message = function () {
+                console.log(this.name + this.age + '岁时,买了一个' + this.iniy());
+            }
+        }
+
+        var beautiful = new VehicleInformation({
+            name: '徐哥',
+            age: 22,
+            carName: '奔驰',
+            displacement: '2.0',
+            ageLimit: 2
+        })
+        beautiful.message();*/
+</script>
+</html>

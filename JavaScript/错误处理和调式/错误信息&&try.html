@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>错误处理</title>
+</head>
+<body>
+
+</body>
+<script>
+
+//1. try-catch 语句
+//1.1  将可能会抛出错误的代码都放在try语句块中，而把那些用于错误处理的代码放在catch块中。
+
+try {
+//可能会导致错误的代码
+
+someFunction();
+
+} catch (error) {
+//在错误发生时怎么处理
+
+alert(error.message)
+
+}
+
+
+//1.2  finally字句
+//虽然finally字句是可选的，但是一经使用，其代码无论如何都会执行。
+
+function testFinally () {
+  try {
+       return 2;
+
+  } catch (error) {
+      return 1;
+
+  } finally {
+      return 0;
+
+  }
+
+}
+//注：只要代码中包含finally字句，那么无论try还是catch语句块中的return语句都将被忽略。
+
+
+//把错误记录到服务器
+function logError (sev, msg) {
+   //sev表示错误的严重程度 nonfatal：非致命的错误
+
+   let img = new Image();
+
+   img.src = "log.php?sev=" + encodeURIComponent(sev) + "&msg=" + encodeURIComponent(msg);
+
+}
+
+//只要是使用try-catch语句，就应该把相应错误记录到日志中。
+
+for (let i = 0, len = modules.lenght; i <  len; i++) {
+     try {
+          modules[i].init();
+
+     } catch (error) {
+         logError("nonfatal", "Module init failed:" + error.message);
+
+     }
+
+}
+
+//对于大型应用来说，自定义的错误通常都使用assert()函数来抛出。
+
+function assert (condition, message) {
+    if (!condition) {
+       throw new Error(message);
+
+    }
+
+}
+
+</script>
+</html>

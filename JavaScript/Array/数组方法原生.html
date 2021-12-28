@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组、类数组</title>
+</head>
+<body>
+</body>
+
+<script>
+    //数组方法: push、splice、sort、unshift、concat、join、pop、shift、push、
+    // reverse、slice、valueOf、lastIndexOf、map、forEach、filter、reduce、
+
+    //push实现原理 从尾部添加
+    /* var arr = [1, 2, 3, 4, 5]
+     Array.prototype.mypush = function () {
+         for (var i = 0; i < arguments.length; i++) {
+             this[this.length] = arguments[i]
+         }
+         return this.length
+     }
+     arr.mypush(6, 7,)
+     console.log(arr)*/
+
+    // unshift实现原理  从头部添加
+    /* var arr = ['a', 'b', 'c', 'd', 'e']
+     Array.prototype.myunshift = function () {
+         var o = 0;
+         for (var i = 0; i < arguments.length; i++) {
+             this.splice(o, 0, arguments[i]);
+             o++;
+         }
+         this.length
+     }
+     arr.myunshift(1, 2, 3);
+     console.log(arr)*/
+
+    //类数组
+    /*let objArray = {
+        '0': 1,
+        '1': 2,
+        '2': 3,
+        '3': 4,
+        'length': 4
+    }
+    //在对象的原型上面去添加 数组的方法，这样就可以在类数组中去使用数组的方法
+    Object.prototype.push = Array.prototype.push
+    Object.prototype.splice = Array.prototype.splice
+    objArray.push(5, 6, 7)
+    console.log(objArray)*/
+
+    //手写字符串去重
+    /*  const str = '86661811234456';
+      String.prototype.unique = function () {
+          let temp = {},
+              newStr = '';  //接收重之后的数据
+          for (let i = 0; i < this.length; i++) {
+              if (!temp.hasOwnProperty(this[i])) {
+                  temp[this[i]] = this[i];
+                  newStr += this[i];
+              }
+          }
+          return newStr
+      }
+      console.log(str.unique())*/
+
+    //手写数组去重
+    /* const str = [8, 66, 66, 1, 8, 1, 1, 2, 3, 4, 4, 5, 6];
+     Array.prototype.unique = function () {
+         let temp = {},
+             newStr = [];  //接收重之后的数据
+         for (let i = 0; i < this.length; i++) {
+             if (!temp.hasOwnProperty(this[i])) {
+                 temp[this[i]] = this[i];
+                 newStr.push(this[i]);
+             }
+         }
+         return newStr
+     }
+     console.log(str.unique())*/
+
+</script>
+</html>

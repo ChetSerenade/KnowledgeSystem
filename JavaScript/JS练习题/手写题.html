@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手写题</title>
+</head>
+<body>
+
+</body>
+<script>
+    //闭包得三种写法
+
+    //闭包一
+    /*  function fn() {
+          var a = '123';
+          return function () {
+              console.log(a)
+          }
+      }
+      var nubar = fn()
+      nubar()*/
+
+    //闭包二
+    /*var initClosure = function () {
+        var obj = new Object();
+        obj.age = 22;
+        obj.name = function (a) {
+      }
+        return obj
+    }
+    var pop = new initClosure();
+    pop.name('666')*/
+
+    //闭包三
+    /*  let initObject = {
+          digital: 'xu',
+          age: 22,
+          Method: function () {
+              return console.log(this.digital + '的年龄是' + this.age)
+          }
+      }
+      console.log(initObject)
+      initObject.Method()*/
+
+    //--------------------------
+
+    //   封装
+    /*   function Cary(opt) {
+           this.language = opt.language;
+           this.age = opt.age;
+           this.grade = opt.grade;
+       }
+
+       function initProgrammer(opt) {
+           this.name = opt.name;
+           this.sonSwife = opt.sonSwife;
+           this.set = function () {
+               var mClass = new Cary(opt.set)
+               return console.log('这是一位' + mClass.language + '他的年龄是' + mClass.age + '他的等级是' + mClass.grade + '他的对象是？' + this.sonSwife)
+           }
+       }
+
+       var well = new initProgrammer({
+           name: '不知道',
+           sonSwife: '没有',
+           set: {
+               language: '程序员',
+               age: 22,
+               grade: '中级',
+           }
+       });
+       well.set() // 这是一位程序员他的年龄是22他的等级是中级他的对象是？没有
+
+       var newCary = {}
+       //改变了 newCary的 this指向
+       Cary.call(newCary, {
+           language: '小小程序员',
+           age: 22,
+           grade: '中级',
+       })
+       console.log(newCary)*/
+
+    //自己写的 题
+    /*
+    var opt = {}
+    function Teacher(opt) {
+        this.father = opt.father;
+        this.mother = opt.mother
+    }
+
+    Object.assign(Teacher.prototype, {
+        names: '父级别'
+    });
+
+    function Student() {
+        this.child = '子';
+    }
+    Student.prototype = Object.create(Teacher.prototype);
+
+    Object.defineProperty(Teacher.prototype, "create", {
+        get() {
+            return this.stored_x;
+        },
+        set(create) {
+            this.stored_x = create
+        }
+    });
+
+    Student.prototype.constructor = Student;
+    Object.assign(Student.prototype, {
+        name: '子级别'
+    });
+
+    Object.defineProperty(opt, "father", {value: '父'});
+    Object.defineProperty(opt, "mother", {value: '母'});
+
+    const a = new Teacher(opt);
+    const b = new Student();
+    a.create = '创建'
+
+    console.log(a)
+    console.log(b)
+    console.log(a.child) // undefined
+    console.log(a.father) // 父
+    console.log(b.child) // 子
+    console.log(b.names)  // 父级别
+    console.log(a.create) // 创建
+    console.log(b.create) // undefined
+    */
+
+
+    //ES6
+    /* class Teacher {
+         hello = 'foo';  // 原型
+         constructor() {
+             this.well = '好的';  // new的时候 创建的属性
+         }
+     }
+
+     class Student extends Teacher {
+         age = 100;
+
+         constructor() {
+             super();
+             this.name = '刘学生'
+         }
+
+         run() {
+             console.log('ddd');
+         }
+     }
+
+     var a = new Teacher();
+     var b = new Student();
+     b.run();
+     console.log(a)
+     console.log(b)*/
+
+    //ES5 公共继承问题
+    /* function Encapsulation(opt, well) {
+         opt.prototype = Object.create(well.prototype);//原型
+         opt.prototype.constructor = opt;  //指向原本的构造函数
+     }
+
+     function Teacher() {
+         this.father = '父';   //new的时候创建
+     }
+
+     function Student() {
+         this.child = '子';
+     }
+
+     Object.assign(Teacher.prototype, {
+         names: '父级别'    //原型
+     });
+
+     Encapsulation(Student, Teacher)
+
+     Object.assign(Student.prototype, {
+         name: '子级别',
+         good: '666'
+     });
+
+     const a = new Teacher();
+     const b = new Student();
+     console.log(a)
+     console.log(b)*/
+</script>
+
+<script>
+    /* window.onload = function (){
+         init()
+     }
+     function  init(){
+         console.log(fibonacci(10))
+     }
+     //斐波那契数列
+     const fibonacci = (function () {
+         function pop(n) {
+             if (n <= 0) return 0;
+             if (n <= 2) return 1;
+             return arguments.callee(n - 1) + arguments.callee(n - 2)
+         }
+         return pop
+     })();*/
+</script>
+
+</html>

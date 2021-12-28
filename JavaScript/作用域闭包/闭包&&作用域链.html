@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包 && 作用域链</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 函数也是一种对象类型 引用类型 引用值
+    // test.name  test.length test.prototype
+    // 对象 - > 有些属性是我们无法访问的
+    // JS引擎内部固有的隐士属性
+    // [[scope]]
+
+    //1.函数创建时,生成一个JS内部的隐士属性
+    //2、函数存储作用链的容器,作用域链
+    // AO/GO
+    // AO 函数执行期上下文
+    // GO 全局的执行期上下文
+    //函数执行完成以后，AO是要销毁的
+
+    // 重点！！
+    /* 每一个函数都有 AO 和 GO
+     AO 作用域链中 是第0位,GO是第一位*/
+
+    // 只要函数被定义就生成GO 当函数被执行的时候生成AO
+
+    //  闭包
+    //  当内部函数被返回到外部并保存时,一定会产生闭包,闭包会产生原来的作用域链不释放;
+    //  过渡的封装闭包可能会导致内存泄露，或者加载过慢
+
+    /*function  sunSched(){
+        var suSched = '';
+        var operation = {
+            seta:function(thing) {
+                suSched = thing
+            },
+            geta:function () {
+                console.log(suSched);
+            }
+        }
+        return operation
+    }
+    var good = sunSched();
+    console.log(good)
+    good.seta('thing');
+    good.geta()*/
+
+    /*
+     function add(a,b) {
+         console.log(a+b)
+     }
+     var add = '111';
+     add(1,2);
+     console.log(add)
+     */
+
+    //    立即执行函数,执行完立即销毁  ！！！
+    //    立即执行函数 --> 初始化  IIFE
+
+    /*(function () {
+        console.log(11)
+    })(); // 最常见的立即执行函数
+
+    (function () {
+        console.log(333)
+    }())//W3c建议写法
+
+    //接受立即执行的值
+    var name = (function () {
+        return 'xu'
+    }())//W3c建议写法
+
+    console.log(name)*/
+    //    一定是表达式才能被立即执行符号执行
+
+    //    函数声明变成表达式的方法  + - ！ || &&
+    /* 1 && function tate() {
+         console.log(1)
+     }();*/
+
+    /* function test() {
+         var arr = [];
+         for (var i = 0; i < 10; i++) {
+             // (function () {
+             arr[i] = function () {
+                 document.write(i + ' ')
+             }
+             // }())
+         }
+         return arr
+     }
+
+     var arry = test();
+     for (var j = 0; j < 10; j++) {
+         arry[j]();
+     }*/
+
+    //重点 封装
+    /* function Ttest(opt) {
+         this.name = opt.name;
+         this.age = opt.age;
+         this.dog = opt.dog;
+         this.smoke = function (falseName) {
+             console.log('good!')
+             return falseName
+         }
+     }
+
+     var well = new Ttest({
+         name: '徐化志',
+         age: '22',
+         dog: '金毛'
+     })
+
+     var pop = new Ttest({
+         name: '徐吱吱',
+         age: '23',
+         dog: '柴犬'
+     })
+
+     console.log(well.smoke('赵儿'))
+     console.log(pop)*/
+
+
+    /*    var a= 10;
+    if(function b() {}){
+        a += typeof(b)
+    }
+    console.log(a)*/
+
+
+    /* var name = 'abcdefg';
+     name += 10;
+     var type = typeof (name); //string
+
+     if (type.length === 6) {
+         type.text = 'string';  // new String(type).text = 'string'  ---> delete
+     }
+     console.log(type.text)  //undefined*/
+
+    // 封装的方法
+    /*    function Car(opt) {
+            this.brand = opt.brand;
+            this.color = opt.color;
+            this.disoplacement = opt.disoplacement;
+        }
+    //封装的函数假方法
+        function Choose(opt) {
+            this.name = opt.name;
+            this.age = opt.age;
+            this.automobile = opt.automobile;
+            this.automatic = function () {
+                var myCar = new Car(opt.automatic);
+                console.log(this.name + '买了一辆' + myCar.color + '的' + myCar.disoplacement + myCar.brand)
+            }
+        }
+        //传值
+        var well = new Choose({
+            name: '小志',
+            age: 22,
+            automobile: '20k',
+            automatic: {
+                brand: '领克',
+                color: '蓝色',
+                disoplacement: '2.0'
+            }
+        })
+        //执行方法
+        well.automatic()*/
+
+</script>
+<script>
+    //原型  原型一定属于实列化对象的 而不是构造函数的！！！
+    //__proto__ 没有任何作用 就是用来去装 prototype的  相当于一个容器!!!
+    // var  car  =  new Car()  // 实例化对象
+    /*prototype 是定义构造函数造重的每个对象的公共祖先
+    所有该构造函数构造出的对象 都可以继承原型上的属性和方法*/
+
+    /*  function Test() {
+        // this.name = 'ptoto'
+    }*/
+
+    // Test.prototype.name = 'prototype';
+    // Test.prototype = {
+    //     name: 'prototype'
+    // }
+    // var test = new Test();
+    // console.log(test.name)  // 注释掉里面 会打印出来 prototype
+
+    /* function f1() {
+         let age = 22;
+         (function () {
+             console.log(age)
+         })();
+     }
+     f1()*/
+
+
+</script>
+<script>
+    //原型链继承
+
+    //Professor的原型
+    /*Professor.prototype = {
+        name: 'Mr.XU',
+        tSkill: 'JavaScript'
+    }
+
+    //Professor的构造函数
+    function Professor() {
+    }
+
+    var professor = new Professor();  //professor 继承与 自己得 原型 --> Professor.prototype = {  xxx  }
+
+    //------------分割线--------------------
+
+    Teacher.prototype = professor*/
+
+    /* Teacher.prototype = professor
+    * 这里首先指向的是 --->  function Professor() {}  但是 他里面上面都没有,因为我是把Professor实列对象给他了,
+    * 实列对象的构造函数里面啥也没有,有一个 __proto__ 这个东西 包裹这 他的原型 Professor
+    * 但是他的原型里面有 --->   Professor.prototype = {  xxx  }
+    * */
+
+    /* function Teacher() {
+         this.name = 'Gao';
+         this.age = '22';
+     }
+
+     var well = new Teacher()*/
+
+    //------------分割线--------------------
+
+    // console.log(well)
+
+
+</script>
+<script>
+    //公共原型  继承会产生污染
+    /*    function Teacher() {
+            this.nam = 'My.xo';
+            this.age = 22;
+        }
+
+        Teacher.prototype = {
+            pop: 'JS'
+        }
+
+        var t = new Teacher()
+        console.log(t) //第一次调用公共的原型
+
+
+        function Study() {
+            this.name = 'My.ad'
+        }
+
+        Study.prototype = Teacher.prototype
+        Study.prototype.age = 99  //加进去之后 公共的原型 也会参数 age = 99
+
+        var b = new Study();
+        console.log(b)//第二次调用公共的原型*/
+
+</script>
+<script>
+    //圣杯模式 较老的写法  已淘汰
+    /*  function Teacher() {
+          this.nam = 'My.xo';
+          this.age = 22;
+      }
+
+      Teacher.prototype = {
+          pop: 'JS'
+      }
+
+      var t = new Teacher()
+      console.log(t) //第一次调用公共的原型
+
+
+      function Study() {
+          this.name = 'My.ad'
+      }
+
+      function Buffer() {}
+      Buffer.prototype = Teacher.prototype;  //在这里进行解决
+      var buffer = new Buffer()
+
+      Study.prototype = buffer;
+
+      Study.prototype.age = 99  //加进去之后 公共的原型 也会参数 age = 99
+
+      var b = new Study();
+      console.log(b)*/
+</script>
+</html>
