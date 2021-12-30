@@ -397,4 +397,4 @@ delete proxy._prop;
 
 ##  参考资料  ##
 >
-1. [主要参考的是阮一峰老是的文章](http://es6.ruanyifeng.com/#docs/proxy)
+1. [主要参考的是阮一峰老师的文章](http://es6.ruanyifeng.com/#docs/proxy)
