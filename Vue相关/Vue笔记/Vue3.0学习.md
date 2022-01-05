@@ -4,10 +4,10 @@
 
 ### 使用webpack  vue-cli 进行创建项目
 
-1. vue -V 必须高于 4.5.0以上
-2.  npm install  -g @vue/cli    安装或者升级 cli
-3. vue create  项目名称 
-4. npm run  server  启动
+1. vue -V   必须高于 4.5.0以上
+2.  npm install  -g @vue/cli     安装或者升级 cli
+3. vue create   项目名称 
+4. npm run  server   启动
 
 ### 使用最新的 vite 进行创建项目
 
@@ -19,10 +19,10 @@ vite的优势：
 
 使用vite创建步骤：
 
-1. npm i -g create-vite-app  全局安装
-2. npm init   vite-app 项目名称
-3. npm install 依赖
-4. npm run dev 启动
+1. npm i -g create-vite-app   全局安装
+2. npm init   vite-app  项目名称
+3. npm install  依赖
+4. npm run dev  启动
 
 ## 二、常用Composition API
 

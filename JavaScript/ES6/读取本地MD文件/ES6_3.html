@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //模块化
+    /*1.防止命名冲突
+    2.代码复用
+    3.高维护性*/
+
+    // ES6之前的模块化规范
+    /*  1、CommonJS > Node.js Browserify
+      2、AMD > requireJS
+      3、CMD > seaJS*/
+
+    //  type = " module"
+
+    /* 模块化语法
+     主要是由二个语法 来进行构成的
+     export用来规定模块化 对外接口   暴露数据或者函数的
+     三种暴露方式
+      第一种   分别暴露
+      export xxx函数()  let xxx 变量
+      第二种   统一暴露
+      export {xxx,xxx}
+      第三种   默认暴露
+      export default {xxxx}     这里接受的话 想要使用  列子: xx.default.xxx() 或者变量
+
+     ------------------------------------------------------------------------------------
+
+     import用来输入其他模块提供的功能的   引入模块的用
+     三种 接受暴露的方式
+     第一种 通用的导入方式
+     通用模板  import * as xxx  from "...."
+
+     第二种  解构赋值
+     import {xxx,xxx}  from "../../"  可以直接使用  对应上面第一  种方式
+     import {xxx as  xxx,xxx} from "../../"  对应上面第二种方式
+     import {default  as (文件名m3)xxx} from "../../m3.js"  对应上面第三种方式
+
+     第三种
+     简便形式   只针对 默认暴露
+     import m3 from "../.."
+      */
+
+    //引入Jquery
+    // import $ from  'jquery'    相当于 const $ = require(“jquery”)
+    // $('body').css('background','pink')  改变背景颜色
+
+    //    xxx.includes(xxx) 判断元素 是不是存在于数组之中
+
+    //    async 和 await
+    /*  async  function main(){
+          let fuzhi = await xxx()  //赋值 函数结果
+          console.log(fuzhi) //打印
+      }
+      main()  调用
+      */
+
+    //动态引入import
+    /* import('./hello.js').then(module => {
+         //这里他返回一个 Promise  方法 我们这里可以直接进行 打印变量 或者直接使用 方法
+         module.hello()
+     })*/
+
+
+    // --------------------------------------------
+
+    //    正则捕获分组  命名捕获 截取a标签链接 使用
+    /*   let str = '<a href="http://www.baidu.com">百度</a>'
+       const reg = /<a href="(?<url>.*)">(?<text>.*)<\/a>/
+       const result = reg.exec(str)
+       console.log(result.groups)*/
+
+    //    正向断言 通过后面得断言
+    /* let str = 'JS1212312加油666冲'
+     //    断言 666
+     const reg = /\d+(?=冲)/;
+     const result = reg.exec(str);
+     console.log(result)*/
+
+    //    反向断言 通过正面得断言
+    /*  let str = 'JS1212312加油666冲'
+      //    断言 666
+      const reg = /(?<=油)\d+/;
+      const result = reg.exec(str);
+      console.log(result)*/
+
+    //    声明正侧  如果做爬虫得话 很有效
+    /* let str = `<ul>
+       <li>
+            <a>电影</a>
+            <p>时间2022/1/1</p>
+       </li>
+                </ul>`
+
+     const reg = /<li>.*<a>(.*?)<\/a>.(.*?)<\/p>/sg
+
+     //    d调用方法
+     const result = str.matchAll(reg)
+     const arr = [...result]
+     console.log(arr)*/
+
+
+
+    //    可选链 ?.
+    /*    function main(config) {
+            const dhHost = config?.db?.name;
+            console.log(dhHost)
+        }
+
+        main({
+            db: {
+                host: '192.168.0.0.1',
+                name: 'root'
+            },
+            cache: {
+                host: '192.168.1.1.1',
+                names: 'admin'
+            }
+        })*/
+
+
+</script>
+</html>

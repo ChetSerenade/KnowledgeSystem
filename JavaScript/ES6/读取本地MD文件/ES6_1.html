@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6基本语法</title>
+</head>
+<body>
+
+</body>
+<script>
+    //变量解构赋值
+    // 1、数组  解构赋值
+    /* const GOOD = ['1', '2', '3', '4'];
+     let [a, b, c, d] = GOOD;
+     console.log(GOOD)*/
+    //2、对象 解构赋值
+    /*const yes = {
+        name:'xhz',
+        age:22,
+        skill:function () {
+            console.log('写代码')
+        }
+    }
+    let {name,age,skill} = yes
+    console.log(name)
+    skill()*/
+
+    //--------------------------------------------------
+
+
+    //模板字符串  [''] '' ""
+    //    1、声明
+    /* let str = '我是一个字符串';
+     console.log(str, typeof str)*/
+    //    2、变量拼接
+    /*  let love = 'xhz';
+      let out = `${love}加油学习！`
+      console.log(out)*/
+
+
+    //--------------------------------------------------
+
+
+    //   简化对象写法
+    /*  let name = '徐徐徐';
+      let change = function () {
+          console.log('这里打印出来！')
+      }
+      const school = {
+          name,
+          change,
+          good () {
+              console.log('确实不错的写法！')
+          }
+      }
+      school.good()
+      console.log(school)*/
+
+    //--------------------------------------------------
+
+
+    // 允许给函数参数赋值 与解构赋值  可以用于node开发接口
+    /*function connect({host,name,password,port}) {
+        console.log(host)
+        console.log(port)
+        console.log(name)
+    }
+    //调用函数 传值
+    connect({
+        host:'127.0.0.1',
+        name: 'xhz',
+        password: '接口',
+        port: '调用？'
+    })*/
+
+
+    //--------------------------------------------------
+
+
+    //    ES获取参数 rest参数   用于获取函数的实参  用来替代 arguments
+    /*  function date(...add) {   // rest参数必须放到最后
+          console.log(add)  //返回数组 之后可以使用 filter some every map
+      }
+      date('大哥', '二哥', '三弟')*/
+
+    //--------------------------------------------------
+
+
+    /*  //    扩展运算符   [...] 可以将数组转换为逗号分隔的【参数化序列】
+      const  caselle= ['恭','喜','你','好'];
+      function demonstrate() {
+          console.log(arguments) // ---> {0:'恭',1:'喜'}
+      }
+      demonstrate(...caselle)
+      //1、数组合并
+      const a = [1, 2, 3];
+      const b = [9, 10];
+      const merge = [...a, ...b]
+      console.log(merge);
+
+      //2、数组克隆
+      const clone = [...b]
+      console.log(clone) //克隆的上面B
+
+      // 3、将伪数组转换成为真正的数组
+      const divs = document.querySelectorAll('div')
+      const divArr = [...divs]
+      console.log(divArr) //标签变成了真正的数组*/
+
+    //--------------------------------------------------
+
+
+</script>
+
+<script>
+    // Symbol  主要是为了 给对象添加属性和方法的
+    /*    let game = {
+            name: '游戏'
+        }
+        //    声明对象添加方法
+        let methods = {
+            up: Symbol(),
+            down: Symbol()
+        };
+        game[methods.up] = function () {
+            console.log('第一个方法')
+        }
+        game[methods.down] = function () {
+            console.log('第二个方法')
+        }
+        console.log(game)*/
+
+    // 特定场景的内置对象推荐去看文档
+
+    //--------------------------------------------------
+
+    // iterator  迭代器  可以遍历数组   每一次返回都是一个对象
+    /*const xiyou = ['a', 'b', 'c', 'd'];
+    //数组方法里面有这个原始方法
+    let interest = xiyou[Symbol.interest]();
+    // 调用
+    console.log(interest.next()) //第一个值
+    console.log(interest.next()) //第二个值  以此类推 ，直到 done 变为true
+    //    如果是遍历对象的化
+    for (let v of 对象) {
+          console.log(v)
+      }*/
+
+    //--------------------------------------------------
+
+    //    生成器
+    //    异步编程 纯回调函数 node fs  ajax  mongodb
+    //    函数代码分隔符
+    /*    function * gen() {
+            yield '一只没用耳兔';
+
+            yield '二只有二度';
+
+            yield 'yield是一块一块（两行一起执行的）';
+
+        }
+
+        let interest = gen(); //可以传参
+        console.log(interest.next()) //直接调用函数是不会输出结果的 需要进行 next()
+        console.log(interest.next()) //next() 可以传入实参
+        //    进行遍历
+        for (let v of gen()) {
+            console.log(v)
+        }*/
+
+    //--------------------------------------------------
+
+    //    利用生成器 去写异步  避免死忙回调
+    /* function one() {
+         setTimeout(() => {
+             console.log('AAA')
+             interest.next()
+         }, 1000)
+     }
+
+     function two() {
+         setTimeout(() => {
+             console.log('BBB')
+             interest.next()
+         }, 1000)
+     }
+
+
+     function three() {
+         setTimeout(() => {
+             console.log('CCC')
+             interest.next()
+         }, 1000)
+     }
+
+     function* gen() {
+         yield  one();
+         yield  two();
+         yield  three();
+     }
+
+     //    调用生成器函数
+     let interest = gen();
+     interest.next()*/
+
+    //--------------------------------------------------
+
+    //模拟用户数据 订单数据  商品数据
+    )/*function one() {
+        setTimeout(() => {
+            let data = '用户数据'
+            //调用next 方法,并将数据传入
+            interest.next(data)
+        }, 1000)
+    }
+
+    function two(users) {
+        setTimeout(() => {
+            console.log('上一个的结果----',users)
+            let data = '订单数据'
+            interest.next(data)
+        }, 1000)
+    }
+
+
+    function three() {
+        setTimeout(() => {
+            let data = '商品数据'
+            interest.next(data)
+        }, 1000)
+    }
+
+    function* gen() {
+        let users = yield  one();
+        console.log(users)
+        let orders = yield  two(users);
+        console.log(orders)
+        let goods = yield  three();
+        console.log(goods)
+    }
+
+    //    调用生成器函数
+    let interest = gen();
+    console.log(interest.next()*/
+
+
+</script>
+</html>
