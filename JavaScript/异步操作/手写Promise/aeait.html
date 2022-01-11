@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+</body>
+<script>
+    function pop() {
+        return new Promise((a, b) => {
+            setTimeout(() => {
+                a('111')
+            }, 1000)
+        })
+    }
+
+    async function good() {
+        let a = await pop()
+        console.log(a);
+    }
+
+    (async function() {
+        const p = Promise.reject("error")
+        try {
+            const res = await p
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+        console.log("success")
+    })()
+
+
+    good()
+</script>
+
+</html>
