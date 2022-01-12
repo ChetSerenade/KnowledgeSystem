@@ -1,0 +1,1 @@
+!function(){"use strict";console.log("你好!");var n=function(n,o){return n+o};n(11,22),n(31,22)}();
