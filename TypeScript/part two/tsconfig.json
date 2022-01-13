@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    // 模块化语法 commonjs、es6、等
+    "module": "es2015",
+    // 编译目标语法  es3 es5 es6 等
+    "target": "es2015",
+    // 排除相关模块
+    "exclude": "node_modules",
+    // 用来指定编译后文件所在目录
+    "outDir": "./dist",
+    // 将TS代码合并成一个JS代码文件  注意:如果是模块化合并代码的话,需要注意使用amd和system
+    // "outFile": ""
+    // 当有错误是不生产编译后的文件
+    "noEmitOnError": false,
+    // 是否对JS文件进行编译
+    "allowJS": false,
+    // 是否对JS文件进行检查
+    "checkJS": false,
+    // 是否移除TS的注释
+    "removeComments": false,
+    // 对src文件下进行编译
+    "include": "src/**/*",
+    // lib 用来指定项目中要使用的库(很多种库)  一般不需要进行使用,如果在node上面使用TS可能需要
+    // "lib": "dom"
+    // 不生产编译后的文件
+    "noEmit": false,
+    // 所有严格检查的总开关   一般开发设置建议为true
+    "strict": false,
+    // 用来设置编译后的代码是否是严格模式
+    "alwaysStrict": false,
+    // 不允许隐士的any类型
+    "noImplicitAny": false,
+    // 不允许不明确类型的this
+    "noImplicitThis": false,
+    // 严格的检查空值
+    "strictNullChecks": false
+  }
+}

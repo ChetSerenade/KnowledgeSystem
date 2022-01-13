@@ -7,9 +7,11 @@ console.log(N)
 let C: boolean = false;
 //可以直接写 --》 相当于 let  C = false
 console.log(C)
+
 function sum(a: number, b: number) {
     return a + b
 }
+
 let sums = sum(123, Number("456")) //注意这里
 console.log(sums)
 
@@ -136,3 +138,18 @@ i = {
 }
 
 console.log(i.gender === Gender.Male)
+
+
+// & 表示同时
+let j: { name: string } & { age: number }
+j = {name: 'lc', age: 22}
+
+//类型别名
+type myTyoe = 1 | 2 | 3 | 4 | 5;
+let A: myTyoe;
+let B: myTyoe;
+A=5  //不会报错 在合理范围之内
+// A=name  //报错
+
+
+

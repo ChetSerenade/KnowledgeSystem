@@ -18,9 +18,8 @@ class Dog{
         // 在方法中可以通过this.来表示当前调用方法的对象
         console.log('叫');
         console.log(this.name);
-        
     }
-
+  
 
 }
 
