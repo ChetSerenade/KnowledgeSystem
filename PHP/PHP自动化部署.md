@@ -15,6 +15,7 @@
 
 3. 查询jdk版本
 
+
      java -version
 
    
