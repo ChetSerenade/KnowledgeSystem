@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .title {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 一个“容器” -->
+  <div id="test"></div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+  const myID = 'xu'
+  const myDate = 'Each'
+
+  //1、创建虚拟Dom
+  const EDOM = (
+    <h2 className='title' id={myDate.toLocaleLowerCase()}>
+      <span>hello,{myID.toLocaleLowerCase()}</span>
+      <p style={{ color: 'black', fontSize: '29px' }}>style,内联修改</p>
+      <input type="text" />
+    </h2>
+
+  )
+
+  //2、渲染虚拟Dom到页面
+  ReactDOM.render(EDOM, document.getElementById('test'))
+
+  /*
+    jsx语法规则：
+      1、定义虚拟Dom时，不要写引号；
+      2、标签中混入的JS表达式要用{}
+      3、样式的类名指定要使用className
+      4、只有一个根标签
+      5、标签需要闭合
+      6、标签首字母
+         （1）.若小写字母开头，则将改标签为html中同名元素，若html中无该标签则对应同名元素，则报错
+         （2）.若大写字母开头，react就去渲染对应的组件，若组件没有定义，则报错
+  */
+
+
+</script>
+
+</html>
