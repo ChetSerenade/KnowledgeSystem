@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>函数式组件</title>
 </head>
 
 <body>
@@ -17,11 +17,13 @@
 
   <script type="text/babel">
     //1、创建函数式组件
-    //study
-    function functionName (parameters) {
-        
+    function Demo(parameters) {
+      //this 是undefined 因为babel开启的严格模式
+      return <h2>函数组件</h2>
     }
 
+    //2、渲染到组件页面
+    ReactDOM.render(<Demo />, document.getElementById('test'))
 
   </script>
 
